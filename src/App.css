@@ -80,6 +80,10 @@ a:hover {
 
 }
 
+#home{
+  height:100vh;
+}
+
 .home-content{
   color:#E6F1FF;
   width: 70%;
@@ -99,10 +103,6 @@ a:hover {
   font-weight: bold;
 }
 
-#about{
-  background-color: #F5F5DC;
-  height:90vh
-}
 
 .profile-image{
   width: 25%;
@@ -163,10 +163,6 @@ a:hover {
 }
 
 
-section{
-  height:100vh;
-
-}
 
 .special-about-me-content{
   color:#1477f7;
@@ -175,7 +171,7 @@ section{
 #about p{
   font-size: 16px;
   font-weight: 500;
-  font-family: "Lucida Console", "Courier New", monospace;
+  
 }
 
 .nav-active{
@@ -211,6 +207,167 @@ section{
   flex-direction: column;
 
 }
+
+#about{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #112240;
+  min-height:90vh;
+  scroll-margin-top: 70px;
+
+}
+
+
+
+.about-image{
+  width: 30%;
+  border-radius: 20px;
+}
+
+.about-content{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.about-head{
+  color:#E6F1FF;
+  font-size: 26px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.about-me-text{
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 16px; 
+  line-height: 1.6;
+  color: #E6F1FF;
+
+}
+
+.about-me-text::first-letter{
+  font-size: 30px;
+
+  font-weight: 600;
+}
+
+#about mark{
+  color:#1477f7;
+  font-family:cursive;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.read-more{
+  color:#E6F1FF;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.about-key-skills-heading{
+  color:#E6F1FF;
+  font-size: 22px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.about-key-skills{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 0px;
+
+}
+
+.about-key-skills li{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  align-self: flex-start;
+  background-color: #A8B2D1;
+  color:#112240;
+  width:100%;
+  padding:4px 8px
+  
+}
+
+.about-key-skills li:nth-child(odd){
+  background-color: #4C7FBF;
+  color: #FFFFFF;
+}
+
+.about-key-skills p{
+  font-size: 16px;
+  font-weight: 500;
+
+  margin: 2px;
+}
+
+.desc-bottom{
+  color:aliceblue;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.about-key-skills li {
+  transition: all 0.3s ease-in-out;
+}
+
+.about-key-skills li:nth-child(odd):hover {
+  background-color: #4C7FBF;
+  color: #FFFFFF;
+  transform: scale(1.03); 
+
+}
+
+.about-key-skills li:nth-child(even):hover {
+  background-color: #A8B2D1;
+  color:#112240;
+  transform: scale(1.03); 
+
+}
+
+.read-more {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: #E6F1FF;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #1477f7;
+}
+
+.read-more div{
+  display: flex;
+  align-items: center;
+}
+
+.read-more div p{
+  margin-left: 5px;
+}
+
+.expandable-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.expandable-content.open {
+  max-height: 600px; 
+  opacity: 1;
+}
+
 
 @media screen and (max-width: 991px) {
   .nav-main{
