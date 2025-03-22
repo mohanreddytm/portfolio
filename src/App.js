@@ -44,7 +44,7 @@ const App = () => {
             <ul className="menu-links">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
+              <li><a href="#skills">Skills & Certificates</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -54,7 +54,7 @@ const App = () => {
             <ul className="nav-links">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
+              <li><a href="#skills">Skills & Certificates</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -96,7 +96,7 @@ const App = () => {
           Whether it's <mark>frontend development, backend APIs, or full-stack solutions</mark>, I focus on delivering high-quality and optimized web applications.
         </p>
 
-        <button className="read-more" onClick={() => setIsOpen(!isOpen)}>
+        <button data-aos="fade-up" className="read-more" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? 
             <div>
               <BiSolidDownArrow /> <p>Read Less</p> 
@@ -126,12 +126,57 @@ const App = () => {
       </div>
     </section>
         <section id="skills">
-          <h2>Skills</h2>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-          </ul>
+        <h1 className='skills-head'>Skills & Certificates</h1>
+        <ul className='skills-list'>
+          <li>
+            <div className='image-certificate-container html-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>HTML & CSS</p>
+          </li>
+          <li>
+            <div className='image-certificate-container javascript-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>JavaScript</p>
+          </li>
+          <li>
+            <div className='image-certificate-container python-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>Python</p>
+          </li>
+          <li>
+            <div className='image-certificate-container react-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>HTML & CSS</p>
+          </li>
+          <li>
+            <div className='image-certificate-container javascript-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>JavaScript</p>
+          </li>
+          <li>
+            <div className='image-certificate-container python-image'>
+              <div className='inline-cont'>
+                <button>View Certificate</button>
+              </div>
+            </div>
+            <p>Python</p>
+          </li>
+        </ul>
         </section>
         <section id="projects">
           <h2>Projects</h2>

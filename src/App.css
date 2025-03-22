@@ -1,4 +1,5 @@
 
+
 .initial-container{
 
   background-color:#0A192F;
@@ -58,10 +59,13 @@ a{
   color: #a7aebc;
   font-weight: 500;
   outline: none;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out ;
 }
 
 a:hover {
   color: #1477f7;
+
 }
 
 .main-container{
@@ -194,9 +198,9 @@ a:hover {
   font-weight: bold;
   padding: 10px;
   text-align: center;
-
-
 }
+
+
 
 .nav-inactive{
   display: none;
@@ -277,7 +281,9 @@ a:hover {
 .about-key-skills{
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  justify-content: center;
+margin-right: 20px;
+
   padding: 0px;
 
 }
@@ -286,11 +292,11 @@ a:hover {
   list-style: none;
   margin: 0px;
   padding: 0px;
-  align-self: flex-start;
+
   background-color: #A8B2D1;
   color:#112240;
   width:100%;
-  padding:4px 8px
+  padding:4px 8px;
   
 }
 
@@ -316,19 +322,24 @@ a:hover {
 
 .about-key-skills li {
   transition: all 0.3s ease-in-out;
+  width: 90%;
 }
+
+
 
 .about-key-skills li:nth-child(odd):hover {
   background-color: #4C7FBF;
   color: #FFFFFF;
-  transform: scale(1.03); 
+  transform: scale(1.05); 
+
+  margin: 0px ;
 
 }
 
 .about-key-skills li:nth-child(even):hover {
   background-color: #A8B2D1;
   color:#112240;
-  transform: scale(1.03); 
+  transform: scale(1.05); 
 
 }
 
@@ -368,6 +379,130 @@ a:hover {
   opacity: 1;
 }
 
+#skills{
+  height:90vh;
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+}
+
+.skills-head{
+  color:#a7aebc;
+  font-size: 26px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px ;
+}
+
+#projects{
+  background-color: #112240;
+}
+
+.skills-list{
+ display: flex;
+ flex-wrap: wrap;
+ width: 100vw;
+ justify-content: center;
+
+}
+
+.skills-list li{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+
+  align-items: center;
+
+}
+
+.skills-list p{
+  color:#E6F1FF;
+  font-size: 16px;
+  font-weight: 500;
+
+
+}
+
+.image-certificate-container{
+  background-image: url("https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+
+.image-certificate-container:hover .inline-cont{
+  max-height: 100%;
+  
+  opacity: 1;
+}
+
+
+.inline-cont{
+  background-color:#b9eaff ;
+  width: 100%;
+  height:50%;
+
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+
+  overflow: visible;
+  max-height: 0;
+  transition:all 0.3s ease-in-out;
+  position: relative;
+  box-shadow: 0px 0px 10px 0px #b9eaff;
+}
+
+.inline-cont button{
+  color:#ffffff;
+  font-size: 16px;
+  position:absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  border: 2px solid #b9eaff;
+  box-shadow: 0px 0px 5px 0px #b9eaff;
+  background-image: linear-gradient(to right, #ffb788,#f71aec,#5980ff);
+
+  border-radius: 8px;
+  padding:8px 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+.react-image{
+  background-image: url("");
+}
+
+.html-image{
+  background-image: url("https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+ 
+}
+
+
+.javascript-image{
+  background-image: url("https://img.freepik.com/free-vector/programming-code-writing-isometric-icon-software-development-laptop-with-text-program-code_39422-887.jpg?t=st=1742619897~exp=1742623497~hmac=74c2d4bc1553bebf731340ee65bc23723a6cc726a350e9a7c4de911662bf164d&w=1380");
+}
+
+
+.python-image{
+  background-image: url("https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1742619819~exp=1742623419~hmac=711734d50c819529729f33029e57fb28980a924efc83bd044bfe8e1d0ed9e84d&w=1380");
+}
 
 @media screen and (max-width: 991px) {
   .nav-main{
