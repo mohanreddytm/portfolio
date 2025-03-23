@@ -9,6 +9,13 @@ import about from './images/aboutme.jpg';
 
 import { IoIosMenu } from "react-icons/io";
 
+import reactimage from "./images/reactimage.png"
+import flexbox from './images/flexbox.png'
+
+import nodecertificate from './images/nodecertificate.png'
+
+import EverySkill  from './components/EverySkill';
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -17,6 +24,9 @@ import './App.css';
 const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [loadMore, setLoadMore] = useState(false);
+
+  
 
   useEffect(() => {
     AOS.init({ 
@@ -32,6 +42,28 @@ const App = () => {
   const onClickMenuIcon = () => {
     setToggleMenu(!toggleMenu);
   }
+
+  const CertificatePopup = () => {
+    return (
+      <div>
+        <h1>Certificate</h1>
+        <img src="https://certificates.ccbp.in/academy/node-js?id=WJKEDWVIYP" />
+      </div>
+    )
+  }
+
+  const skills = [
+    {name :"HTML/CSS", image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
+    {name :"JavaScript", image: "https://img.freepik.com/free-vector/programming-code-writing-isometric-icon-software-development-laptop-with-text-program-code_39422-887.jpg?t=st=1742619897~exp=1742623497~hmac=74c2d4bc1553bebf731340ee65bc23723a6cc726a350e9a7c4de911662bf164d&w=1380"},
+    {name :"React Js", image: reactimage},
+    {name:"Node Js & Express Js",certificate: nodecertificate, image:"https://img.freepik.com/free-photo/application-programming-interface-hologram_23-2149092255.jpg?t=st=1742728364~exp=1742731964~hmac=7f25b7c56a20d269f423d9b04e279f25ee4ecf1a3b6f6d6f504bec865902b5d3&w=1480"},
+    {name :"SqLite & PostgreSql", image: "https://img.freepik.com/free-vector/gradient-sql-illustration_23-2149247491.jpg?t=st=1742725626~exp=1742729226~hmac=40724bbc1336ac35336eead41c2e20a9f443ddafc6063e4c70ec5984ef5619a0&w=1800"},
+    {name :"Python", image: "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1742619819~exp=1742623419~hmac=711734d50c819529729f33029e57fb28980a924efc83bd044bfe8e1d0ed9e84d&w=1380"},
+   
+    {name :"Responsive Web Design", image: "https://img.freepik.com/free-vector/cartoon-web-design-landing-page_52683-70880.jpg?t=st=1742726953~exp=1742730553~hmac=633fb3532016a3b7156793a0db30c2ad178bd2f001acc25cf9c50ae0de910ef1&w=1800"},
+    {name :"Responsive Web Design using Flexbox", image: flexbox},
+    {name :"Dynamic Web Application", image: "https://img.freepik.com/free-photo/smartphone-with-user-interface-concept_52683-104210.jpg?t=st=1742727800~exp=1742731400~hmac=8a85fb386cebcbcdb19195c1b556ce651a808daadffe8123f6d5d647d67e2e49&w=1480"}
+  ]
 
 
   return (
@@ -126,58 +158,14 @@ const App = () => {
       </div>
     </section>
         <section id="skills">
-        <h1 className='skills-head'>Skills & Certificates</h1>
-        <ul className='skills-list'>
-          <li>
-            <div className='image-certificate-container html-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>HTML & CSS</p>
-          </li>
-          <li>
-            <div className='image-certificate-container javascript-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>JavaScript</p>
-          </li>
-          <li>
-            <div className='image-certificate-container python-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>Python</p>
-          </li>
-          <li>
-            <div className='image-certificate-container react-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>HTML & CSS</p>
-          </li>
-          <li>
-            <div className='image-certificate-container javascript-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>JavaScript</p>
-          </li>
-          <li>
-            <div className='image-certificate-container python-image'>
-              <div className='inline-cont'>
-                <button>View Certificate</button>
-              </div>
-            </div>
-            <p>Python</p>
-          </li>
-        </ul>
-        </section>
+          <h1 data-aos="fade-up" className='skills-head'>Skills & Certificates</h1>
+          <ul className='skills-list'>
+            {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill skill={eachSkill} />)}
+          </ul>
+          <div data-aos="fade-up" className='show-more-button'>
+             <button onClick={() => setLoadMore(!loadMore)} className='load-more-button'>Show {loadMore ? "Less" : "More"}</button>
+          </div>
+       </section>
         <section id="projects">
           <h2>Projects</h2>
           <ul>

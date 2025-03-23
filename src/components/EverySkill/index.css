@@ -1,0 +1,72 @@
+.certiticate-popup-cont{
+    position: fixed;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttons-container-certificate
+{
+    display: flex;
+    align-items: center;
+
+}
+
+.close-button-certificate{
+    width: 120px;
+    color:#1477f7;
+    background-color: #0A192F;
+    border: 1px solid #1477f7;
+    border-radius: 4px;
+    padding:8px 16px;
+    margin: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.close-button-certificate:hover{
+
+    background-color:  #1b293d;
+
+}
+
+.download-button-certificate{
+    color:white;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    background-color: #1477f7;
+    border: none;
+    border-radius: 4px;
+    padding:8px 16px;    
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+#certificate-container{
+
+    width: 60%;
+    height: 80%;
+}
+
+.download-button-certificate:hover{
+    background-color: #328bff;
+    color:white;
+}
+
+.certificate-image{
+    width: 100%;
+    height: 100%;
+}
