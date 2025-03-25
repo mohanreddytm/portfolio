@@ -12,7 +12,16 @@ import { IoIosMenu } from "react-icons/io";
 import reactimage from "./images/reactimage.png"
 import flexbox from './images/flexbox.png'
 
+import responsivewebdesigncertificate from './images/responsivewebdesigncertificate.png'
+import htmlcsscertificate from './images/htmlcsscertificate.png'
+import dynamicwebappcertificate from './images/dynamicwebappcertificate.png'
 import nodecertificate from './images/nodecertificate.png'
+import reactcertificate from './images/reactcertificate.png'
+import javascriptcertificate from './images/javascriptcertificate.png'
+import pythoncertificate from './images/pythoncertificate.png'
+import webdesignflexboxcertificate from './images/webdesignflexboxcertificate.png'
+import databasecertificate from './images/databasecertificate.png'
+
 
 import EverySkill  from './components/EverySkill';
 
@@ -53,16 +62,16 @@ const App = () => {
   }
 
   const skills = [
-    {name :"HTML/CSS", image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-    {name :"JavaScript", image: "https://img.freepik.com/free-vector/programming-code-writing-isometric-icon-software-development-laptop-with-text-program-code_39422-887.jpg?t=st=1742619897~exp=1742623497~hmac=74c2d4bc1553bebf731340ee65bc23723a6cc726a350e9a7c4de911662bf164d&w=1380"},
-    {name :"React Js", image: reactimage},
+    {name :"HTML/CSS", certificate:htmlcsscertificate, image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
+    {name :"JavaScript", certificate : javascriptcertificate , image: "https://img.freepik.com/free-vector/programming-code-writing-isometric-icon-software-development-laptop-with-text-program-code_39422-887.jpg?t=st=1742619897~exp=1742623497~hmac=74c2d4bc1553bebf731340ee65bc23723a6cc726a350e9a7c4de911662bf164d&w=1380"},
+    {name :"React Js", certificate : reactcertificate, image: reactimage},
     {name:"Node Js & Express Js",certificate: nodecertificate, image:"https://img.freepik.com/free-photo/application-programming-interface-hologram_23-2149092255.jpg?t=st=1742728364~exp=1742731964~hmac=7f25b7c56a20d269f423d9b04e279f25ee4ecf1a3b6f6d6f504bec865902b5d3&w=1480"},
-    {name :"SqLite & PostgreSql", image: "https://img.freepik.com/free-vector/gradient-sql-illustration_23-2149247491.jpg?t=st=1742725626~exp=1742729226~hmac=40724bbc1336ac35336eead41c2e20a9f443ddafc6063e4c70ec5984ef5619a0&w=1800"},
-    {name :"Python", image: "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1742619819~exp=1742623419~hmac=711734d50c819529729f33029e57fb28980a924efc83bd044bfe8e1d0ed9e84d&w=1380"},
+    {name :"SqLite & PostgreSql", certificate:databasecertificate, image: "https://img.freepik.com/free-vector/gradient-sql-illustration_23-2149247491.jpg?t=st=1742725626~exp=1742729226~hmac=40724bbc1336ac35336eead41c2e20a9f443ddafc6063e4c70ec5984ef5619a0&w=1800"},
+    {name :"Python",certificate:pythoncertificate, image: "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1742619819~exp=1742623419~hmac=711734d50c819529729f33029e57fb28980a924efc83bd044bfe8e1d0ed9e84d&w=1380"},
    
-    {name :"Responsive Web Design", image: "https://img.freepik.com/free-vector/cartoon-web-design-landing-page_52683-70880.jpg?t=st=1742726953~exp=1742730553~hmac=633fb3532016a3b7156793a0db30c2ad178bd2f001acc25cf9c50ae0de910ef1&w=1800"},
-    {name :"Responsive Web Design using Flexbox", image: flexbox},
-    {name :"Dynamic Web Application", image: "https://img.freepik.com/free-photo/smartphone-with-user-interface-concept_52683-104210.jpg?t=st=1742727800~exp=1742731400~hmac=8a85fb386cebcbcdb19195c1b556ce651a808daadffe8123f6d5d647d67e2e49&w=1480"}
+    {name :"Responsive Web Design", certificate:responsivewebdesigncertificate, image: "https://img.freepik.com/free-vector/cartoon-web-design-landing-page_52683-70880.jpg?t=st=1742726953~exp=1742730553~hmac=633fb3532016a3b7156793a0db30c2ad178bd2f001acc25cf9c50ae0de910ef1&w=1800"},
+    {name :"Responsive Web Design using Flexbox",certificate:webdesignflexboxcertificate, image: flexbox},
+    {name :"Dynamic Web Application",certificate:dynamicwebappcertificate, image: "https://img.freepik.com/free-photo/smartphone-with-user-interface-concept_52683-104210.jpg?t=st=1742727800~exp=1742731400~hmac=8a85fb386cebcbcdb19195c1b556ce651a808daadffe8123f6d5d647d67e2e49&w=1480"}
   ]
 
 
