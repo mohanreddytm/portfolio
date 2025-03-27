@@ -1,0 +1,47 @@
+.service-pop-cont{
+    position: fixed;
+    z-index: 100000;
+    background-color: #112240;
+    top:0;
+    bottom: 0px;
+    right:0px;
+    left:0px;
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+ 
+}
+
+.service-pop-main-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.service-pop-main-head{
+    font-size: 24px;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.service-pop-intro{
+    font-size: 14px;
+    font-weight: 500;
+    color: lightgray;
+}
+
+.service-pop-head{
+    font-size: 20px;
+    font-weight: 500;
+    color:white;
+}
+
+.service-pop-list{
+    padding: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 0px;
+}
+
+.service-pop-list li{
+    list-style-type: none;
+
+}

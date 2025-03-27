@@ -9,6 +9,8 @@ import about from './images/aboutme.jpg';
 
 import { IoIosMenu } from "react-icons/io";
 
+import Services from './components/SericesData';
+
 import reactimage from "./images/reactimage.png"
 import flexbox from './images/flexbox.png'
 
@@ -22,8 +24,9 @@ import pythoncertificate from './images/pythoncertificate.png'
 import webdesignflexboxcertificate from './images/webdesignflexboxcertificate.png'
 import databasecertificate from './images/databasecertificate.png'
 
-
+import EveryService from './components/EveryService';
 import EverySkill  from './components/EverySkill';
+
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -34,6 +37,7 @@ const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
+  const [loadservices, setloadservices] = useState(false)
 
   
 
@@ -73,6 +77,9 @@ const App = () => {
     {name :"Responsive Web Design using Flexbox",certificate:webdesignflexboxcertificate, image: flexbox},
     {name :"Dynamic Web Application",certificate:dynamicwebappcertificate, image: "https://img.freepik.com/free-photo/smartphone-with-user-interface-concept_52683-104210.jpg?t=st=1742727800~exp=1742731400~hmac=8a85fb386cebcbcdb19195c1b556ce651a808daadffe8123f6d5d647d67e2e49&w=1480"}
   ]
+
+
+
 
 
   return (
@@ -169,11 +176,21 @@ const App = () => {
         <section id="skills">
           <h1 data-aos="fade-up" className='skills-head'>Skills & Certificates</h1>
           <ul className='skills-list'>
-            {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill skill={eachSkill} />)}
+            {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill key={eachSkill.name} skill={eachSkill} />)}
           </ul>
           <div data-aos="fade-up" className='show-more-button'>
              <button onClick={() => setLoadMore(!loadMore)} className='load-more-button'>Show {loadMore ? "Less" : "More"}</button>
           </div>
+       </section>
+       <section id="services">
+        <h1 className='services-main-head'>Services</h1>
+        <ul className='serives-container'>
+          {loadservices === false ? Services.slice(0,2).map(eachService => <EveryService service={eachService} key={eachService.id} />):Services.map(eachService => <EveryService service={eachService} key={eachService.id} />)}
+          
+        </ul>
+        <div data-aos="fade-up" className='show-more-button show-more-in-services'>
+          <button onClick={() => setloadservices(!loadservices)} className='load-more-button'>Show {loadservices ? "Less" : "More"}</button>
+        </div>
        </section>
         <section id="projects">
           <h2>Projects</h2>
