@@ -1,47 +1,121 @@
 .service-pop-cont{
     position: fixed;
     z-index: 100000;
-    background-color: #112240;
+    background-color: #07152c;
     top:0;
     bottom: 0px;
     right:0px;
     left:0px;
     display: flex;
     font-family:Arial, Helvetica, sans-serif;
- 
+    overflow-y:scroll; 
+    scrollbar-width: none;
 }
 
 .service-pop-main-section{
     display: flex;
     flex-direction: column;
+    min-width: 60%;
+    padding: 20px;
+
 }
 
 .service-pop-main-head{
     font-size: 24px;
-    color: whitesmoke;
+    color: #ff00bf;
     font-weight: 500;
+    margin: 0px ;
+    margin-bottom: 20px;
+    font-family: cursive;
+    text-decoration: underline;
 }
 
 .service-pop-intro{
     font-size: 14px;
     font-weight: 500;
     color: lightgray;
+    width: 89%;
+    padding-left: 16px;
+    line-height: 1.5;
+    border-left: 4px solid rgb(255, 205, 86);
+
 }
 
 .service-pop-head{
     font-size: 20px;
     font-weight: 500;
-    color:white;
+    color:#1477f7;
 }
 
 .service-pop-list{
     padding: none;
     display: flex;
     flex-direction: column;
-    max-width: 0px;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .service-pop-list li{
     list-style-type: none;
+    color:white;
+}
+
+.what-we-do-cont li{
+    border: 1px solid lightgray;
+    width: 90%;
+    padding: 8px 16px;
+}
+
+.technologies-used-cont{
+    width: 100%;
+}
+
+.technologies-used-cont li{
+    padding: 10px;
+    width: 92%;
+    background-color: #dc5cff;
+    transition: all 0.3s ease-in-out;
 
 }
+
+.technologies-used-cont li:nth-child(even){
+    background-color:#a35cff;
+
+}
+
+.technologies-used-cont li:hover{
+    transform: scale(1.03);
+}
+
+.close-one-every-serives{
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 10px;
+    justify-content: center;
+    min-height: 25px;
+align-self: flex-end;
+    margin: 1px;
+
+}
+
+
+
+
+.close-one-every-serives:hover{
+    background-color: red;
+}
+
+.special-features{
+    margin-top: 0px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+}
+
+.special-features-cont li{
+    list-style-type:lower-alpha;
+    padding: 5px;
+}   
