@@ -32,7 +32,7 @@ const EverySkill = ({skill}) => {
 
     const CertificatePopup = () => {
         return (
-          <div className='certiticate-popup-cont'>
+          <div className='certiticate-popup-cont' data-aos="fade-up">
             <div id="certificate-container">
                 <img className='certificate-image' src={certificate} alt="about" />
             

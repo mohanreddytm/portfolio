@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter,FaArrowAltCircleRight , FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiSolidRightArrow, BiSolidDownArrow } from "react-icons/bi";
 
 import profile from './images/profile.jpg';
@@ -27,11 +27,19 @@ import databasecertificate from './images/databasecertificate.png'
 import EveryService from './components/EveryService';
 import EverySkill  from './components/EverySkill';
 
+import one from './images/one.png'
+
+import EveryProject from './components/EveryProject';
+
+import bookbazaarlogo from './images/bookbazaarlogo.png'
+import bookbazaarimage from './images/bookbazaarimage.png'
+
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import './App.css';
+import { Title } from 'chart.js';
 
 const App = () => {
 
@@ -56,15 +64,6 @@ const App = () => {
     setToggleMenu(!toggleMenu);
   }
 
-  const CertificatePopup = () => {
-    return (
-      <div>
-        <h1>Certificate</h1>
-        <img src="https://certificates.ccbp.in/academy/node-js?id=WJKEDWVIYP" />
-      </div>
-    )
-  }
-
   const skills = [
     {name :"HTML/CSS", certificate:htmlcsscertificate, image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
     {name :"JavaScript", certificate : javascriptcertificate , image: "https://img.freepik.com/free-vector/programming-code-writing-isometric-icon-software-development-laptop-with-text-program-code_39422-887.jpg?t=st=1742619897~exp=1742623497~hmac=74c2d4bc1553bebf731340ee65bc23723a6cc726a350e9a7c4de911662bf164d&w=1380"},
@@ -77,6 +76,12 @@ const App = () => {
     {name :"Responsive Web Design using Flexbox",certificate:webdesignflexboxcertificate, image: flexbox},
     {name :"Dynamic Web Application",certificate:dynamicwebappcertificate, image: "https://img.freepik.com/free-photo/smartphone-with-user-interface-concept_52683-104210.jpg?t=st=1742727800~exp=1742731400~hmac=8a85fb386cebcbcdb19195c1b556ce651a808daadffe8123f6d5d647d67e2e49&w=1480"}
   ]
+
+  const projects = [
+    {projectNo:1, title: "BookBazaar", url:"https://bookbazaarmax.vercel.app/",contentBg:one, logo: bookbazaarlogo, image:bookbazaarimage, desc: "The Bookstore App is a full-stack web application designed for users to browse, add books to a cart, and make purchases. It features user authentication, a persistent shopping cart, and dynamically fetched book data. The frontend is built with React, while the backend handles authentication and data management, ensuring a seamless shopping experience."},
+  ]
+
+
 
 
 
@@ -193,12 +198,15 @@ const App = () => {
         </div>
        </section>
         <section id="projects">
-          <h2>Projects</h2>
-          <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-          </ul>
+          <h1>Projects</h1>
+          <div className='projects-container'>
+            <FaArrowAltCircleLeft />
+              <ul className='projects-list'>
+                {projects.map(eachProject => <EveryProject key={eachProject.projectNo} project={eachProject} />)}
+              </ul>
+            <FaArrowAltCircleRight />
+          </div>
+
         </section>
         <section id="contact">
           <h2>Contact</h2>
