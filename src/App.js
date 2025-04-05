@@ -33,19 +33,25 @@ import EveryProject from './components/EveryProject';
 
 import bookbazaarlogo from './images/bookbazaarlogo.png'
 import bookbazaarimage from './images/bookbazaarimage.png'
+import todoslogo from './images/todoslogo.png'
+import foodmunchlogo from './images/foodmunchlogo.png'
+import spaciologo from './images/spaciologo.png'
 
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import './App.css';
-import { Title } from 'chart.js';
+
+import nxtwatchlogo from './images/nxtwatchlogo.png'
 
 const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
   const [loadservices, setloadservices] = useState(false)
+
+  const [currentPage, setCurrentPage] = useState(0);
 
   
 
@@ -78,8 +84,26 @@ const App = () => {
   ]
 
   const projects = [
-    {projectNo:1, title: "BookBazaar", url:"https://bookbazaarmax.vercel.app/",contentBg:one, logo: bookbazaarlogo, image:bookbazaarimage, desc: "The Bookstore App is a full-stack web application designed for users to browse, add books to a cart, and make purchases. It features user authentication, a persistent shopping cart, and dynamically fetched book data. The frontend is built with React, while the backend handles authentication and data management, ensuring a seamless shopping experience."},
+    {projectNo:1, title: "BookBazaar", url:"https://bookbazaarmax.vercel.app/", logo: bookbazaarlogo, image:bookbazaarimage, desc: "The Bookstore App is a full-stack web application designed for users to browse, add books to a cart, and make purchases. It features user authentication, a persistent shopping cart, and dynamically fetched book data. The frontend is built with React, while the backend handles authentication and data management, ensuring a seamless shopping experience."},
+    {projectNo:2, title: "Nxtwatch", url:"https://mynxtwatch.vercel.app", logo: nxtwatchlogo, image:"https://img.freepik.com/free-photo/man-watching-tv-eating-popcorn_23-2148868653.jpg?t=st=1743832629~exp=1743836229~hmac=608022509fb7d56c93b2ab07def0b66475b0a49718185f68e02b40390606388c&w=1380", desc: "MyNxtWatch is your ultimate video-watching adda ! Dive into trending content, binge on your favorite videos, and save them for later—because why not rewatch the good stuff? Whether you're vibing with Light Mode or chilling in Dark Mode , we've got the perfect theme for your mood. Smooth, stylish, and oh-so-addictive—MyNxtWatch is where entertainment meets your vibe!"},
+    {projectNo:3, title: "Spacio Technotics", url:"https://spacio-project-i86j.vercel.app/", logo: spaciologo, image:"https://img.freepik.com/free-photo/concentrated-african-american-user-wearing-vr-glasses_74855-4049.jpg?t=st=1743835450~exp=1743839050~hmac=4e63da47dc299c8f17bc6189e132358ce87247f48b5310f3eaf388570697183e&w=1480", desc: "Spacio Technology is a futuristic UI concept that brings space vibes to life. With clean layouts, modern design, and smooth transitions, it's a visual journey through tech and cosmos—built purely on frontend power. Just UI, but it feels out of this world."},
+    {projectNo:4, title: "FoodMunch", url:"https://mohanfoodmuch.ccbp.tech/", logo: foodmunchlogo, image:"https://img.freepik.com/free-photo/people-taking-photos-food_23-2149303524.jpg?t=st=1743833909~exp=1743837509~hmac=4f2fcf93d0e1e836e8e34e6e575bcdda7a6acd48a220c8b077223064472596d4&w=1480", desc: "FoodieZone is a mouth-watering UI treat for food lovers. Browse delicious dishes, explore vibrant menus, and enjoy a smooth, responsive design—crafted purely with frontend magic. It’s all about tempting visuals, tasty layouts, and pixel-perfect perfection!"},
+    {projectNo:5, title: "Todos", url:"https://taskswithmohan.ccbp.tech/", logo: todoslogo, image:"https://img.freepik.com/free-photo/back-view-male-professional-works-puts-his-ideas-stick-notes-going-write-main-info-creating-business-plan_273609-34113.jpg?t=st=1743833823~exp=1743837423~hmac=2d2d9a1523a2911eb582a4b8916a9875d7640b0ae3666d6f2d7ed55cdd478c75&w=1480", desc: "ToDo Master – your daily hustle partner. Add tasks, smash goals, and track everything like a boss. With a sleek UI and smooth performance, it’s all about getting things done—your way, your time. Light or Dark mode? We got both. Just plan, click, conquer!"},
+    
+     
   ]
+
+  const onClickLeftArrowProject = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
+  const onClickRightArrowProject = () => {
+    if (currentPage < projects.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
 
 
 
@@ -198,13 +222,13 @@ const App = () => {
         </div>
        </section>
         <section id="projects">
-          <h1>Projects</h1>
+          <h1 className='services-main-head'>Projects</h1>
           <div className='projects-container'>
-            <FaArrowAltCircleLeft />
+            <FaArrowAltCircleLeft onClick={onClickLeftArrowProject} className='arrow-one-project' />
               <ul className='projects-list'>
-                {projects.map(eachProject => <EveryProject key={eachProject.projectNo} project={eachProject} />)}
+                {projects.slice(currentPage,currentPage + 1).map(eachProject => <EveryProject key={eachProject.projectNo} project={eachProject} />)}
               </ul>
-            <FaArrowAltCircleRight />
+            <FaArrowAltCircleRight onClick={onClickRightArrowProject} className='arrow-one-project' />
           </div>
 
         </section>

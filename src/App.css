@@ -414,8 +414,6 @@ margin-right: 20px;
 
 .projects-list{
   width: 80%;
-  background-color: pink;
-
 }
 
 .skills-list{
@@ -644,7 +642,27 @@ margin-right: 20px;
 }
 
 
+#projects{
+  min-height: 90vh;
+  background-color: #0A192F;
+  font-family: 'Poppins', sans-serif;
+  scroll-margin-top: 70px;
 
+}
+
+.arrow-one-project{
+  color:white;
+
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  background-color: #1477f7;
+}
+
+.arrow-one-project:hover{
+  box-shadow: 0px 0px 10px 0px #1477f7;
+}
 
 
 
