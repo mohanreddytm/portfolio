@@ -570,13 +570,14 @@ margin-right: 20px;
 
   width: 80%;
   margin: 10px;  transition: all 0.3s ease-in-out;
-
+border-radius: 5px;
   box-shadow: 0px 0px 10px 0px #1B262C;
 }
 
 .every-service:hover{
   max-width: 80% ;
   transform: scale(1.02);
+
 }
 
 .every-service:nth-child(even) .every-service-content{

@@ -87,5 +87,11 @@
   .every-project-url{
     text-decoration: underline;
     margin: 10px 20px;
-    color:rgb(220, 220, 220);
+    color: #00d9ff;
+
+  }
+
+  .every-project-url:hover{
+    color: #3599ab;
+    text-decoration: none;
   }
