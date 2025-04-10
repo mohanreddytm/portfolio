@@ -9,7 +9,7 @@ import about from './images/aboutme.jpg';
 
 import { IoIosMenu } from "react-icons/io";
 
-import Services from './components/SericesData';
+import Services from './components/SericesData';import { FaGithub } from "react-icons/fa";
 
 import reactimage from "./images/reactimage.png"
 import flexbox from './images/flexbox.png'
@@ -39,7 +39,8 @@ import spaciologo from './images/spaciologo.png'
 import rockpaperlogo from './images/rockpaperlogo.png'
 import primevideologo from './images/primevideologo.png'
 import taskmanagerlogo from './images/taskmanagerlogo.png'
-
+import oneresume from './oneresume.pdf'
+import { FaRegCopyright, FaAngleUp  } from "react-icons/fa6";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -55,6 +56,15 @@ const App = () => {
   const [loadservices, setloadservices] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(0);
+
+
+
+  const [fullnameinput, setFullnameinput] = useState("");
+  const [emailinput, setEmailinput] = useState("");
+  const [mobilenumberinput, setMobilenumberinput] = useState("");
+  const [emailSubjectinput, setEmailSubjectinput] = useState("");
+  const [messageinput, setMessageinput] = useState("");
+  const [count , setCount] = useState(0);
 
   
 
@@ -110,11 +120,41 @@ const App = () => {
     }
   }
 
+  const onChangeFullname = event =>{
+    setFullnameinput(event.target.value);
+  }
+  const onChangeEmailAddress = event =>{
+    setEmailinput(event.target.value);
+  }
+  const onChangeMobileNumber = event =>{
+    const num = Number(event.target.value);
+    if( !isNaN(num) && Number.isInteger(num) && event.target.value.length <= 10){
+      setMobilenumberinput(event.target.value); 
+    }
 
 
+  }
+  const onChangeEmailsub = event =>{
+    setEmailSubjectinput(event.target.value);
+  }
+  const onChangeMessage = event =>{
+    setCount(event.target.value.length);
+    if(event.target.value.length < 600){
+      setMessageinput(event.target.value);
+    }
 
+  }
 
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = oneresume; // Path to your PDF file
+    link.download = "Mohan_Resume.pdf";
+    link.click();
+}
 
+  const onClickContactButton = () => {
+console.log("Clicked")
+  }
 
   return (
     <div className="initial-container">
@@ -156,9 +196,9 @@ const App = () => {
               <li><FaFacebook className='icons' /></li>
               <li><FaInstagram className='icons' /></li>
               <li><FaLinkedin className='icons' /></li>
-              <li><FaTwitter className='icons' /></li>
+              <li><FaGithub className='icons' /></li>
             </ul>
-            <button data-aos="fade-up" className="resume-button">View Resume</button>
+            <button onClick={downloadResume} data-aos="fade-up" className="resume-button">Download Resume</button>
           </div>
           <img src={profile} alt='profile' className="profile-image" />
           
@@ -229,19 +269,36 @@ const App = () => {
         <section id="projects">
           <h1 className='services-main-head'>Projects</h1>
           <div className='projects-container'>
-            <FaArrowAltCircleLeft onClick={onClickLeftArrowProject} className='arrow-one-project' />
+            <FaArrowAltCircleLeft onClick={onClickLeftArrowProject} className={`arrow-one-project ${currentPage == 0 && "low-one" }`} />
               <ul className='projects-list'>
                 {projects.slice(currentPage,currentPage + 1).map(eachProject => <EveryProject key={eachProject.projectNo} project={eachProject} />)}
               </ul>
-            <FaArrowAltCircleRight onClick={onClickRightArrowProject} className='arrow-one-project' />
+            <FaArrowAltCircleRight onClick={onClickRightArrowProject} className={`arrow-one-project ${currentPage == projects.length-1 && "low-one" }`} />
           </div>
 
         </section>
         <section id="contact">
-          <h2>Contact</h2>
-          <p>Email:</p>
-          <p>Phone:</p>
+            <h1 className='contant-me-head'>Contact <span>Me</span></h1>
+            <div className='contact-me-container'>
+              <input type="text" onChange={onChangeFullname} value={fullnameinput} placeholder='Full Name' className='input-field' />
+              <input type="text" onChange={onChangeEmailAddress} value={emailinput} placeholder='Email Address' className='input-field' />
+            </div>
+            <div className='contact-me-container'>
+              <input type="text" onChange={onChangeMobileNumber} value={mobilenumberinput} placeholder='Mobile Number' className='input-field' />
+              <input type="text" onChange={onChangeEmailsub} value={emailSubjectinput} placeholder='Email Subject' className='input-field' />
+              
+            </div>
+            <div className='contact-me-text-cont'>
+              <textarea onChange={onChangeMessage} value={messageinput} className='text-area-contact-me' placeholder='Your Message' rows={10}  />
+              <p className='count-value'>{count}/600</p>
+            </div>
+
+            <button onClick={onClickContactButton} className='send-message-button-contact'>Send Message</button>
         </section>
+        <div className='copy-right-container'>
+          <p className='copy-right-para'>Copyright <FaRegCopyright className='copy-right-sys' /> 2025 by Mohan | All Rights Reserved. </p>
+          <a href='#home'><FaAngleUp className='copy-right-up-arrow'  /></a>
+        </div>
             
       </div>
     </div>

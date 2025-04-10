@@ -15,7 +15,6 @@ const EveryService = (props) => {
     const {service} = props
  
     const [showDetails, setShowDetails] = useState(false)
-    console.log(service)
 
     const onClickViewDetails = () => {
         setShowDetails(true)
@@ -91,7 +90,6 @@ const EveryService = (props) => {
         )
     }
 
-    console.log(showDetails)
 
     return(
         <>

@@ -567,18 +567,17 @@ margin-right: 20px;
 .every-service{
   display: flex;
   background-color: #1B262C;
-
   width: 80%;
   margin: 10px;  transition: all 0.3s ease-in-out;
-border-radius: 5px;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px 0px #1B262C;
 }
 
 .every-service:hover{
   max-width: 80% ;
   transform: scale(1.02);
-
 }
+
 
 .every-service:nth-child(even) .every-service-content{
   order: 1;
@@ -618,7 +617,6 @@ border-radius: 5px;
 
 .services-button{
   background-color: blanchedalmond;
-
   color: black;
   font-size: 10px;
   font-weight: 500;
@@ -666,6 +664,146 @@ border-radius: 5px;
 }
 
 
+
+
+
+.low-one{
+  background-color: #5091e0;
+  color:#a2aaba;
+}
+
+
+.low-one:hover{
+  box-shadow: none;
+}
+
+#contact{
+  background-color: #112240;
+  width: 100%;
+  min-height:80vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.copy-right-container{
+  height: 10vh;
+  margin: 0px;
+width: 80%;
+color:#a2aaba;
+font-size: 14px;
+font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-right-para{
+  display: flex;
+  align-items: center;
+}
+
+.copy-right-sys{
+  margin: 0px 5px;
+}
+
+.copy-right-up-arrow{
+  background-color: #1477f7;
+  padding:10px;
+  border-radius: 4px;
+  color:white;
+  cursor: pointer;
+}
+
+.contant-me-head{
+  color:#E6F1FF;
+  font-size: 26px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px ;  
+  margin-bottom: 30px;
+}
+
+.contant-me-head::first-letter{
+  font-size: 30px;
+  font-weight: 600;
+
+}
+
+.contant-me-head span{
+  color:#1477f7;
+  font-family: cursive;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.contact-me-container{
+  display: flex;
+  align-items: center;
+
+  width: 50%;
+}
+
+.input-field{
+  padding:14px;
+  border-radius: 4px;
+  width: 50%;
+  margin: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background-color: #202e47;
+  color:#ebf1ff;
+}
+
+.contact-me-text-cont{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  position: relative;
+}
+
+.text-area-contact-me{
+  width: 94%;    font-size: 13px;
+  font-weight: 500;
+  outline: none;  margin: 5px;
+  border: none;
+  background-color: #202e47;
+  padding:14px;
+  color:#ebf1ff;
+  margin-top: 10px;
+  border-radius: 4px;
+
+
+}
+.count-value{
+  color:#afb4c0;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+.send-message-button-contact{
+  background-color: #1477f7;
+  color:white;
+  padding:8px 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.send-message-button-contact:hover{
+  background-color:#398dfb;
+}
 
 
 
