@@ -1,5 +1,4 @@
-import {useState, useEffect} from 'react';
-
+import { useEffect, useRef, useState } from "react";
 
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter,FaArrowAltCircleRight , FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiSolidRightArrow, BiSolidDownArrow } from "react-icons/bi";
@@ -40,7 +39,7 @@ import rockpaperlogo from './images/rockpaperlogo.png'
 import primevideologo from './images/primevideologo.png'
 import taskmanagerlogo from './images/taskmanagerlogo.png'
 import oneresume from './oneresume.pdf'
-import { FaRegCopyright, FaAngleUp  } from "react-icons/fa6";
+import { FaRegCopyright, FaAngleUp, FaSquareXTwitter  } from "react-icons/fa6";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -65,6 +64,41 @@ const App = () => {
   const [emailSubjectinput, setEmailSubjectinput] = useState("");
   const [messageinput, setMessageinput] = useState("");
   const [count , setCount] = useState(0);
+
+  const [activeSection, setActiveSection] = useState("home");
+
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const skillsRef = useRef();
+  const servicesRef = useRef();
+  const projectsRef = useRef();
+  const contactRef = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + window.innerHeight / 2;
+
+      const sections = [
+        { id: "home", ref: homeRef },
+        { id: "about", ref: aboutRef },
+        { id: "skills", ref: skillsRef },
+        { id: "services", ref: servicesRef },
+        { id: "projects", ref: projectsRef },
+        { id: "contact", ref: contactRef }
+      ];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionTop = sections[i].ref.current.offsetTop;
+        if (scrollY >= sectionTop) {
+          setActiveSection(sections[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   
 
@@ -174,18 +208,18 @@ console.log("Clicked")
           </nav>
           <nav className='nav-main'>
             <ul className="nav-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills & Certificates</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#home" className={activeSection === "home" ? "active" : ""}>Home</a></li>
+              <li><a href="#about" className={activeSection === "about" ? "active" : ""}>About</a></li>
+              <li><a href="#skills" className={activeSection === "skills" ? "active" : ""} >Skills & Certificates</a></li>
+              <li><a href="#services" className={activeSection === "services" ? "active" : ""}>Services</a></li>
+              <li><a href="#projects" className={activeSection === "projects" ? "active" : ""}>Projects</a></li>
+              <li><a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a></li>
             </ul>
           </nav>
         </header>
       </div>
       <div className="main-container">
-        <section className="main-containers" id="home">
+        <section className="main-containers" id="home" ref={homeRef}>
           <div className="home-content">
             <h1  data-aos="fade-up"className="name-head-1">Hi, Myself</h1>
             <h1  data-aos="fade-up"className="name-head-2">Tammineni Mohan Reddy</h1>
@@ -193,18 +227,25 @@ console.log("Clicked")
             <p data-aos="fade-up" className='profile-description'>I'm a passionate full-stack developer, crafting seamless web experiences with React, Node.js, and modern technologies.
               I love turning ideas into functional, user-friendly applications.</p>
             <ul data-aos="fade-up">
-              <li><FaFacebook className='icons' /></li>
-              <li><FaInstagram className='icons' /></li>
-              <li><FaLinkedin className='icons' /></li>
-              <li><FaGithub className='icons' /></li>
+              <li><a className='website-icons' href='https://x.com/MohanreddyTamm2'><FaSquareXTwitter className='icons' /></a></li>
+              <li><a className='website-icons' href='https://www.instagram.com/username_mohan/'><FaInstagram className='icons' /></a></li>
+              <li><a className='website-icons' href='https://www.linkedin.com/in/mohanreddytm/'><FaLinkedin className='icons' /></a></li>
+              <li><a className='website-icons' href='https://github.com/mohanreddytm'><FaGithub className='icons' /></a></li>
             </ul>
             <button onClick={downloadResume} data-aos="fade-up" className="resume-button">Download Resume</button>
           </div>
-          <img src={profile} alt='profile' className="profile-image" />
+          <div className='profile-image-container'>
+            <div> 
+              <img src={profile} alt='profile' className="profile-image" />
+            </div>
+
+          </div>
+
+          
           
         </section>
         
-        <section id="about">
+        <section id="about" ref={aboutRef}>
       <img src={about} alt="about" className="about-image" />
 
       <div className="about-content">
@@ -247,7 +288,7 @@ console.log("Clicked")
         </div>
       </div>
     </section>
-        <section id="skills">
+        <section id="skills" ref={skillsRef}>
           <h1 data-aos="fade-up" className='skills-head'>Skills & Certificates</h1>
           <ul className='skills-list'>
             {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill key={eachSkill.name} skill={eachSkill} />)}
@@ -256,28 +297,28 @@ console.log("Clicked")
              <button onClick={() => setLoadMore(!loadMore)} className='load-more-button'>Show {loadMore ? "Less" : "More"}</button>
           </div>
        </section>
-       <section id="services">
+       <section id="services" ref={servicesRef}>
         <h1 className='services-main-head'>Services</h1>
         <ul className='serives-container'>
           {loadservices === false ? Services.slice(0,2).map(eachService => <EveryService service={eachService} key={eachService.id} />):Services.map(eachService => <EveryService service={eachService} key={eachService.id} />)}
           
         </ul>
-        <div data-aos="fade-up" className='show-more-button show-more-in-services'>
+        <div className='show-more-button show-more-in-services'>
           <button onClick={() => setloadservices(!loadservices)} className='load-more-button'>Show {loadservices ? "Less" : "More"}</button>
         </div>
        </section>
-        <section id="projects">
+        <section id="projects" ref={projectsRef}>
           <h1 className='services-main-head'>Projects</h1>
           <div className='projects-container'>
-            <FaArrowAltCircleLeft onClick={onClickLeftArrowProject} className={`arrow-one-project ${currentPage == 0 && "low-one" }`} />
+            <FaArrowAltCircleLeft onClick={onClickLeftArrowProject} className={`arrow-one-project ${currentPage === 0 && "low-one" }`} />
               <ul className='projects-list'>
                 {projects.slice(currentPage,currentPage + 1).map(eachProject => <EveryProject key={eachProject.projectNo} project={eachProject} />)}
               </ul>
-            <FaArrowAltCircleRight onClick={onClickRightArrowProject} className={`arrow-one-project ${currentPage == projects.length-1 && "low-one" }`} />
+            <FaArrowAltCircleRight onClick={onClickRightArrowProject} className={`arrow-one-project ${currentPage === projects.length-1 && "low-one" }`} />
           </div>
 
         </section>
-        <section id="contact">
+        <section id="contact" ref={contactRef}>
             <h1 className='contant-me-head'>Contact <span>Me</span></h1>
             <div className='contact-me-container'>
               <input type="text" onChange={onChangeFullname} value={fullnameinput} placeholder='Full Name' className='input-field' />

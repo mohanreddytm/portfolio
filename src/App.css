@@ -16,7 +16,7 @@
   left:0px;
   right:0px;  
   background-color: #0A192F;
-  z-index: 1;
+  z-index: 2;
 
 }
 
@@ -101,12 +101,6 @@ a:hover {
   font-family: cursive;
   margin: 0px;
   font-weight: bold;
-}
-
-
-.profile-image{
-  width: 25%;
-  border-radius: 160px;
 }
 
 .menu-icon{
@@ -522,11 +516,13 @@ margin-right: 20px;
   align-self: center;
   cursor: pointer;
   outline: none;
-
+  transition:box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .load-more-button:hover{
   box-shadow: none;
+  background-color: #E6F1FF;
+  color: #1477f7;
 }
 
 
@@ -665,6 +661,91 @@ margin-right: 20px;
 
 
 
+.profile-image{
+  width: 100%;
+  border-radius: 160px;
+  position: relative;
+  z-index: 1;
+  margin: 0px;
+}
+
+
+.profile-image-container{
+  width: 25%;
+
+  text-align: center;
+  position: relative;
+}
+
+.profile-image-container div{
+  width: 100%;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+
+
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.profile-image-container div::after, .profile-image-container div::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top:50%;
+  left:50%; 
+  translate: -50% -50%;
+  background-image: conic-gradient(from var(--angle),#6f00ff, #00ffd5, #ff6f61, #6f00ff);
+  z-index: 0;
+  padding:3px;
+  border-radius: 160px;
+  animation:3s spin linear infinite;
+}
+
+.profile-image-container div::before{
+  filter: blur(8px);
+  opacity: 0.7;
+
+}
+
+.active{
+  color:#1477f7;
+}
+
+@keyframes spin{
+  form{
+    --angle: 0deg;
+  }
+
+  to{
+    --angle: 360deg;
+  }
+}
+
+/* .profile-image-container::after{
+  content: '';
+  position: absolute;
+  height:85%;
+  width: 78%;
+  top:50%;
+  left:50%;
+  translate: -50% -50%;
+  background: red;
+  z-index: 0;
+  padding:10px;
+  border-radius: 160px;
+} */
+
+
 
 
 .low-one{
@@ -702,6 +783,15 @@ font-weight: 500;
 .copy-right-para{
   display: flex;
   align-items: center;
+}
+
+.website-icons{
+  margin: 0px;
+}
+
+.profile-description{
+  animation: 3s infinite alternate slide-in;
+
 }
 
 .copy-right-sys{
