@@ -31,8 +31,9 @@ const EverySkill = ({skill}) => {
 
 
     const CertificatePopup = () => {
+        console.log("entered here skill")
         return (
-          <div className='certiticate-popup-cont' data-aos="fade-up">
+          <div className='certiticate-popup-cont'>
             <div id="certificate-container">
                 <img className='certificate-image' src={certificate} alt="about" />
             
@@ -44,6 +45,8 @@ const EverySkill = ({skill}) => {
           </div>
         )
       }
+
+console.log("entered into every skill")
 
 return(
     <li>

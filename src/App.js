@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter,FaArrowAltCircleRight , FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiSolidRightArrow, BiSolidDownArrow } from "react-icons/bi";
 
-import profile from './images/profile.jpg';
+import profile from './images/profile.png';
 import about from './images/aboutme.jpg';
+
+import SecondIterator from './components/SecondIterator';
 
 import { IoIosMenu } from "react-icons/io";
 
@@ -41,12 +43,11 @@ import taskmanagerlogo from './images/taskmanagerlogo.png'
 import oneresume from './oneresume.pdf'
 import { FaRegCopyright, FaAngleUp, FaSquareXTwitter  } from "react-icons/fa6";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 import './App.css';
 
 import nxtwatchlogo from './images/nxtwatchlogo.png'
+
 
 const App = () => {
 
@@ -55,7 +56,6 @@ const App = () => {
   const [loadservices, setloadservices] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(0);
-
 
 
   const [fullnameinput, setFullnameinput] = useState("");
@@ -73,6 +73,7 @@ const App = () => {
   const servicesRef = useRef();
   const projectsRef = useRef();
   const contactRef = useRef();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,14 +103,6 @@ const App = () => {
 
   
 
-  useEffect(() => {
-    AOS.init({ 
-      duration: 600,
-      once: true, 
-      offset: 10,
-      easing: "ease-out"
-    });
-  }, []);
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -179,9 +172,11 @@ const App = () => {
 
   }
 
+
+
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = oneresume; // Path to your PDF file
+    link.href = oneresume;
     link.download = "Mohan_Resume.pdf";
     link.click();
 }
@@ -194,7 +189,7 @@ console.log("Clicked")
     <div className="initial-container">
       <div className="header-container">
         <header>
-          <h1 className="portfolio-heading">Portfolio</h1>
+          <h1 className="portfolio-heading"><span>Port</span>folio</h1>
           <IoIosMenu onClick={onClickMenuIcon} className="menu-icon" />
           <nav className={toggleMenu ? 'nav-active' : 'nav-inactive'}>
             <ul className="menu-links">
@@ -221,18 +216,22 @@ console.log("Clicked")
       <div className="main-container">
         <section className="main-containers" id="home" ref={homeRef}>
           <div className="home-content">
-            <h1  data-aos="fade-up"className="name-head-1">Hi, Myself</h1>
-            <h1  data-aos="fade-up"className="name-head-2">Tammineni Mohan Reddy</h1>
-            <h1 data-aos="fade-up" className="name-head-1">And I'm a <span className="web-developer-span">Web Developer</span></h1>
-            <p data-aos="fade-up" className='profile-description'>I'm a passionate full-stack developer, crafting seamless web experiences with React, Node.js, and modern technologies.
+            <h1 className="name-head-1">Hi, Myself</h1>
+            <h1 className="name-head-2">Tammineni Mohan Reddy</h1>
+            <div className="name-head-cont-3">
+            <h1 className="name-head-1">And I'm a </h1>
+              {activeSection === "home" ? (<SecondIterator currentOne={activeSection} />) : <h1 className="web-developer-span">Full Stack Web Developer<span className="blink">|</span></h1>}
+            </div>
+            
+            <p className='profile-description'>I'm a passionate full-stack developer, crafting seamless web experiences with React, Node.js, and modern technologies.
               I love turning ideas into functional, user-friendly applications.</p>
-            <ul data-aos="fade-up">
+            <ul>
               <li><a className='website-icons' href='https://x.com/MohanreddyTamm2'><FaSquareXTwitter className='icons' /></a></li>
               <li><a className='website-icons' href='https://www.instagram.com/username_mohan/'><FaInstagram className='icons' /></a></li>
               <li><a className='website-icons' href='https://www.linkedin.com/in/mohanreddytm/'><FaLinkedin className='icons' /></a></li>
               <li><a className='website-icons' href='https://github.com/mohanreddytm'><FaGithub className='icons' /></a></li>
             </ul>
-            <button onClick={downloadResume} data-aos="fade-up" className="resume-button">Download Resume</button>
+            <button onClick={downloadResume} className="resume-button">Download Resume</button>
           </div>
           <div className='profile-image-container'>
             <div> 
@@ -249,17 +248,17 @@ console.log("Clicked")
       <img src={about} alt="about" className="about-image" />
 
       <div className="about-content">
-        <h2 data-aos="fade-up" className="about-head">About Me</h2>
-        <p data-aos="fade-up" className="about-me-text">
+        <h2 className="about-head">About Me</h2>
+        <p className="about-me-text">
           I’m <mark>Tammineni Mohan Reddy</mark>, a dedicated <mark>Full-Stack Web Developer</mark> with expertise in <mark>React.js, Node.js, Express.js, and SQLite</mark>. 
           I specialize in building modern, high-performance web applications that are <mark>responsive, efficient, and scalable</mark>.
         </p>
-        <p data-aos="fade-up" className="about-me-text">
+        <p className="about-me-text">
           I enjoy turning ideas into reality through <mark>clean code and seamless UI/UX</mark>. 
           Whether it's <mark>frontend development, backend APIs, or full-stack solutions</mark>, I focus on delivering high-quality and optimized web applications.
         </p>
 
-        <button data-aos="fade-up" className="read-more" onClick={() => setIsOpen(!isOpen)}>
+        <button  className="read-more" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? 
             <div>
               <BiSolidDownArrow /> <p>Read Less</p> 
@@ -289,11 +288,11 @@ console.log("Clicked")
       </div>
     </section>
         <section id="skills" ref={skillsRef}>
-          <h1 data-aos="fade-up" className='skills-head'>Skills & Certificates</h1>
+          <h1 className='skills-head'>Skills & Certificates</h1>
           <ul className='skills-list'>
             {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill key={eachSkill.name} skill={eachSkill} />)}
           </ul>
-          <div data-aos="fade-up" className='show-more-button'>
+          <div className='show-more-button'>
              <button onClick={() => setLoadMore(!loadMore)} className='load-more-button'>Show {loadMore ? "Less" : "More"}</button>
           </div>
        </section>

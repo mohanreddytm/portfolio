@@ -32,11 +32,26 @@ header{
 
 
 .portfolio-heading{
-  color:#E6F1FF;
   font-size: 26px;
   font-family: cursive;
   font-weight: bold;
+  background-image: linear-gradient(to right, #ffb788,#f71aec,#5980ff);
+  background-clip: text;
+  color:transparent
 }
+
+.portfolio-heading span{
+  background-image: linear-gradient(to right, #ffb788,#f71aec,#5980ff);
+  color:#E6F1FF;
+  background-clip: border-box;
+  padding:3px;
+  border-radius: 4px;
+  margin-right: 2px;
+  /* font-family: 'Poppins', sans-serif; */
+}
+
+
+
 
 ul{
   display: flex;
@@ -130,12 +145,13 @@ a:hover {
 
 
 
-
 .web-developer-span{
   color:#1477f7;
   font-size: 20px;
   font-weight: bold;
   font-family: cursive;
+  margin-top: 10px;
+
 }
 
 .resume-button{
@@ -704,7 +720,7 @@ margin-right: 20px;
   top:50%;
   left:50%; 
   translate: -50% -50%;
-  background-image: conic-gradient(from var(--angle),#6f00ff, #00ffd5, #ff6f61, #6f00ff);
+  background-image: conic-gradient(#6f00ff, #00ffd5, #ff6f61, #6f00ff);
   z-index: 0;
   padding:3px;
   border-radius: 160px;
@@ -719,33 +735,52 @@ margin-right: 20px;
 
 .active{
   color:#1477f7;
+  background-image:linear-gradient(to right,#0346ff,#296dff,#386ee3,#0044ff);
+  background-clip: text;
+  color: transparent;
+
 }
 
-@keyframes spin{
-  form{
-    --angle: 0deg;
-  }
+/* @keyframes bounce{
+   0%,50%,20%,70%,90%,100%{
+    transform: translateY(0);
+   }
+   40%{
+      transform: translateY(-20px);
+   }
 
-  to{
-    --angle: 360deg;
-  }
+    60%{
+      transform: translateY(-10px);
+    }
+
+    80%{
+      transform: translateY(-5px);
+    }
+
+}*/
+
+.bounce{
+  /* animation: bounce 1.5s linear infinite;
+  animation-delay: 5s; */
+  margin-left: 20px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 }
 
-/* .profile-image-container::after{
-  content: '';
-  position: absolute;
-  height:85%;
-  width: 78%;
-  top:50%;
-  left:50%;
-  translate: -50% -50%;
-  background: red;
-  z-index: 0;
-  padding:10px;
-  border-radius: 160px;
-} */
 
+.fade-out {
+  opacity: 0;
+}
 
+.fade-in {
+  opacity: 1;
+}
+
+.name-head-cont-3{
+  display: flex;
+  align-items: center;
+
+}
 
 
 .low-one{
@@ -766,6 +801,26 @@ margin-right: 20px;
   flex-direction: column;
 
   align-items: center;
+}
+
+.mute{
+  display: none;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50%, 30%, 70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink{
+  animation: blink 1.05s infinite;
 }
 
 .copy-right-container{
