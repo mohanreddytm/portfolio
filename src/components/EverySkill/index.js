@@ -49,13 +49,19 @@ const EverySkill = ({skill}) => {
 console.log("entered into every skill")
 
 return(
-    <li>
+    <li className='every-skill-cont'>
     {showCertificate && <CertificatePopup />}
-        <ImageContainer image={skill.image} className='image-certificate-container html-image'>
-            <div className='inline-cont'>
-            <button onClick={() => setShowCertificate(true)}>View Certificate</button>
+        <div className='every-skill-image-cont'>
+            <div className='inner-image-cont'>
+                <ImageContainer image={skill.image} className='image-certificate-container'>
+                    <div className='inline-cont'>
+                    <button onClick={() => setShowCertificate(true)}>View Certificate</button>
+                    </div>
+                </ImageContainer>
             </div>
-        </ImageContainer>
+
+        </div>
+
         <p>{skill.name}</p>
     </li>
         

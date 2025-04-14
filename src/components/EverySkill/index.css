@@ -70,3 +70,143 @@
     width: 100%;
     height: 100%;
 }
+
+.every-skill-image-cont{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.inner-image-cont{
+    height: 100%;
+    width:100%;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.inner-image-cont::after, .inner-image-cont::before{
+    content: '';
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-image: conic-gradient(from 72deg,transparent 0% 95%,#fe19fe 0% 5%);
+    z-index: -1;
+    padding:1.5px;
+    border-radius:10px;
+    top:50%;
+    left:50%; 
+    translate: -50% -50%;
+}
+
+.inner-image-cont::before{
+    filter:blur(5px);
+    opacity: 0.5;
+}
+
+
+.every-skill-image-cont::after, .every-skill-image-cont::before {
+    content: '';
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-image: conic-gradient(from 310deg,transparent 0% 43%,#97e8ff 0% 57%);
+    z-index: -1;
+    padding:1.5px;
+    border-radius:10px;
+    top:50%;
+    left:50%; 
+    translate: -50% -50%;
+}
+
+.every-skill-image-cont::before{
+    filter:blur(5px);
+    opacity: 0.5;
+}
+
+.image-certificate-container{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+  }
+  
+  
+  .image-certificate-container:hover .inline-cont{
+    max-height: 100%;
+    opacity: 1;
+  }
+  
+  
+  .inline-cont{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height:50%;
+    max-height:0;
+  
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 500px;
+    border-top-left-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+  
+    overflow: visible ;
+    max-height: 0;
+    transition:all 0.3s ease-in-out;
+    position: relative;
+
+  
+  }
+  
+  .inline-cont button{
+    color:#ffffff;
+    font-size: 16px;
+    position:absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 500;
+    border:none;
+    background-image: linear-gradient(to right, #ffb788,#f71aec,#5980ff);
+    border-radius: 8px;
+    padding:8px 16px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .inline-cont button:hover{
+    
+    background-image: linear-gradient(to right, #ffa96f,#ff00f2,#3060ff);
+  
+  }
+
+.every-skill-cont{
+    /* position:relative; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  
+    align-items: center;
+    margin-bottom: 20px;
+    /* z-index: 1; */
+}
+
+/* .every-skill-cont::after{
+    content:'';
+    height:100%;
+    width:100%;
+    position: absolute;
+    z-index:-1;
+    background-color: red;
+} */
