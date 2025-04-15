@@ -172,6 +172,10 @@ const App = () => {
 
   }
 
+  const onClickMenuLinks = () => {
+    setToggleMenu(false);
+  }
+
 
 
   const downloadResume = () => {
@@ -193,12 +197,13 @@ console.log("Clicked")
           <IoIosMenu onClick={onClickMenuIcon} className="menu-icon" />
           <nav className={toggleMenu ? 'nav-active' : 'nav-inactive'}>
             <ul className="menu-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills & Certificates</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+
+            <li><a href="#home" onClick={onClickMenuLinks} className={activeSection === "home" ? "active" : ""}>Home</a></li>
+              <li><a href="#about" onClick={onClickMenuLinks}  className={activeSection === "about" ? "active" : ""}>About</a></li>
+              <li><a href="#skills" onClick={onClickMenuLinks}  className={activeSection === "skills" ? "active" : ""} >Skills & Certificates</a></li>
+              <li><a href="#services" onClick={onClickMenuLinks}  className={activeSection === "services" ? "active" : ""}>Services</a></li>
+              <li><a href="#projects" onClick={onClickMenuLinks}  className={activeSection === "projects" ? "active" : ""}>Projects</a></li>
+              <li><a href="#contact"  onClick={onClickMenuLinks} className={activeSection === "contact" ? "active" : ""}>Contact</a></li>
             </ul>
           </nav>
           <nav className='nav-main'>

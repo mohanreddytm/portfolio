@@ -91,6 +91,8 @@ a:hover {
   display: flex;
   align-items: center;
   width: 85%;
+  min-height: max(90vh, 600px);
+
   justify-content: space-between;
 
 }
@@ -186,24 +188,40 @@ a:hover {
 
 .nav-active{
   display: block;
-  position:absolute;
-  right:40px;
+  position:fixed;
   top:10vh;
-  background-color: #a7aebc;
+  right:0;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
 
 .menu-links{
   display: flex;
   flex-direction: column;
-  display: none;  
+  margin: 0px ;
+  background-color: #0A192F;
+  padding: 10px 0px;
+}
+
+.menu-links li{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  margin: 0px 0px 10px 5%;
+
 }
 
 .menu-links a{
-  color:#0A192F;
+  color: rgb(218, 218, 218);
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
   padding: 10px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 
@@ -223,7 +241,7 @@ a:hover {
   justify-content: space-around;
   align-items: center;
   background-color: #112240;
-  min-height:90vh;
+  min-height: max(90vh, 600px);
   scroll-margin-top: 70px;
 
 }
@@ -413,17 +431,19 @@ margin-right: 20px;
 #projects{
   background-color: #0A192F;
   width: 100vw;
-
+  height: max(90vh, 600px);
 }
 
 .projects-container{
   display: flex;
   align-items: center;
   justify-content: space-around;
+
 }
 
 .projects-list{
   width: 80%;
+
 }
 
 .skills-list{
@@ -861,6 +881,7 @@ font-weight: 500;
   outline: none;
   margin-top: 20px;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .send-message-button-contact:hover{
@@ -877,11 +898,18 @@ font-weight: 500;
   .menu-links{
     display: block;
   }
+
+
   .menu-icon{
     display: block;
     color:#a7aebc;
     font-size: 30px;
     cursor: pointer;
+  }
+}
+@media screen and (min-width: 992px){
+  .nav-active{
+    display: none;
   }
 }
 

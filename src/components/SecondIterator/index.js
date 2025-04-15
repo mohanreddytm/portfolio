@@ -44,7 +44,7 @@ const SecondIterator = () => {
         , 100);
         setFade(true); 
     }, 2000); 
-    console.log(currentRole);
+
     return () => clearInterval(interval);
   }, [currentRole]);
 
