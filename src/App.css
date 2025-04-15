@@ -85,6 +85,7 @@ a:hover {
   justify-content: center;
   align-items: center;
 
+
 }
 
 .main-containers{
@@ -97,9 +98,9 @@ a:hover {
 
 }
 
-#home{
+/* #home{
   height:100vh;
-}
+} */
 
 .home-content{
   color:#E6F1FF;
@@ -189,7 +190,7 @@ a:hover {
 .nav-active{
   display: block;
   position:fixed;
-  top:10vh;
+  top:60px;
   right:0;
   left: 0;
   bottom: 0;
@@ -211,7 +212,7 @@ a:hover {
   margin: 0px;
   padding: 0px;
   text-decoration: none;
-  margin: 0px 0px 10px 5%;
+  margin: 0px 0px 10px 6%;
 
 }
 
@@ -928,4 +929,47 @@ font-weight: 500;
 html{
   scroll-behavior: smooth;
   scrollbar-width:none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-containers{
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+  }
+  .profile-image-container{
+    order:1;
+    width: 80%;
+    margin: 100px;
+    margin-bottom: 20px;
+  }
+  .home-content{
+    order:3;
+    width: 100%;
+  }.name-head-2{
+    font-size: 25px;
+    margin-top: 0px;
+  }.name-head-1{
+    font-size: 16px;
+
+  }
+  .one-x{
+    margin: 0px;
+  }
+  .home-content{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 20px 0px;
+  }
+  .profile-description{
+    margin: 0px;
+  }
+  .resume-button{
+   align-self: center;
+  }
+  .home-icons-cont{
+    justify-content: center;
+
+  }
 }

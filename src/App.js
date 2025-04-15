@@ -218,19 +218,19 @@ console.log("Clicked")
           </nav>
         </header>
       </div>
-      <div className="main-container">
+      <div className="main-container">  
         <section className="main-containers" id="home" ref={homeRef}>
           <div className="home-content">
             <h1 className="name-head-1">Hi, Myself</h1>
             <h1 className="name-head-2">Tammineni Mohan Reddy</h1>
             <div className="name-head-cont-3">
-            <h1 className="name-head-1">And I'm a </h1>
+              <h1 className="name-head-1 one-x">And I'm a </h1>
               {activeSection === "home" ? (<SecondIterator currentOne={activeSection} />) : <h1 className="web-developer-span">Full Stack Web Developer<span className="blink">|</span></h1>}
             </div>
             
             <p className='profile-description'>I'm a passionate full-stack developer, crafting seamless web experiences with React, Node.js, and modern technologies.
               I love turning ideas into functional, user-friendly applications.</p>
-            <ul>
+            <ul className="home-icons-cont">
               <li><a className='website-icons' href='https://x.com/MohanreddyTamm2'><FaSquareXTwitter className='icons' /></a></li>
               <li><a className='website-icons' href='https://www.instagram.com/username_mohan/'><FaInstagram className='icons' /></a></li>
               <li><a className='website-icons' href='https://www.linkedin.com/in/mohanreddytm/'><FaLinkedin className='icons' /></a></li>
@@ -291,7 +291,7 @@ console.log("Clicked")
           </p>
         </div>
       </div>
-    </section>
+        </section>
         <section id="skills" ref={skillsRef}>
           <h1 className='skills-head'>Skills & Certificates</h1>
           <ul className='skills-list'>
