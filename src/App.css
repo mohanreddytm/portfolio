@@ -93,7 +93,8 @@ a:hover {
   align-items: center;
   width: 85%;
   min-height: max(90vh, 600px);
-
+  scroll-margin-top: 70px;
+  margin-top: 10vh;
   justify-content: space-between;
 
 }
@@ -937,6 +938,7 @@ html{
     align-items: center;
     justify-content: flex-start;
     min-height: auto;
+    margin-top: 0px;
   }
   .profile-image-container{
     order:1;
@@ -949,13 +951,19 @@ html{
     width: 100%;
   }.name-head-2{
     font-size: 25px;
-    margin-top: 0px;
+    margin-top: 0px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+
   }.name-head-1{
     font-size: 16px;
 
   }
   .one-x{
-    margin: 0px;
+    margin: 0px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+
+  }
+  .web-developer-span{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+
   }
   .home-content{
     display: flex;
@@ -971,5 +979,8 @@ html{
   .home-icons-cont{
     justify-content: center;
 
+  }.portfolio-heading{
+    font-size: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
   }
 }
