@@ -94,12 +94,12 @@ const EveryService = (props) => {
     return(
         <>
             <li className='every-service'>
-                <img src={service.img} alt={service.title} />
+                <img src={service.img} alt={service.title} className='every-serice-image' />
                 <div className='every-service-content'>
-                <h1 className='every-service-content-head'>{service.title} </h1>
-                <p className='every-service-content-desc'>{service.desc}</p>
-                
-                <button onClick={onClickViewDetails} className='services-button'>View Details</button>
+                    <h1 className='every-service-content-head'>{service.title} </h1>
+                    <p className='every-service-content-desc'>{service.desc}</p>
+                    
+                    <button onClick={onClickViewDetails} className='services-button'>View Details</button>
                 </div>
             </li>
             {showDetails &&  <DetailedContent />}

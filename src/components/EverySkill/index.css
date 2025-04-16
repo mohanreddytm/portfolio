@@ -199,6 +199,7 @@
   
     align-items: center;
     margin-bottom: 20px;
+    
     /* z-index: 1; */
 }
 
@@ -210,3 +211,21 @@
     z-index:-1;
     background-color: red;
 } */
+
+
+@media screen and (max-width:768px) {
+    .every-skill-cont{
+        width: 80%;
+
+        padding: 0px;
+        margin:0px;
+    }
+    .every-skill-image-cont::after, .every-skill-image-cont::before {
+
+        background-image: conic-gradient(from 308deg,transparent 0% 43%,#97e8ff 0% 57%);
+
+    }
+    .inner-image-cont::after, .inner-image-cont::before{
+        background-image: conic-gradient(from 74deg,transparent 0% 95%,#fe19fe 0% 5%);
+    }
+}

@@ -99,5 +99,11 @@
   @media screen and (max-width:768px) {
     .every-project{
         flex-direction: column;
+        min-height: max(60vh, 540px);
     }
+    .every-project-left-cont{
+        width: 100%;
+        min-height: max(35vh, 280px);
+    }
+
   }

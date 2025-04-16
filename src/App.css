@@ -937,7 +937,7 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: auto;
+    min-height: max(90vh, 800px);
     margin-top: 0px;
   }
   .profile-image-container{
@@ -945,6 +945,15 @@ html{
     width: 80%;
     margin: 100px;
     margin-bottom: 20px;
+  }
+  .about-image{
+    display: none;
+  }
+  .about-content{
+    width: 90%;
+  }
+  .header-container{
+    padding:  10px 0px;
   }
   .home-content{
     order:3;
@@ -957,13 +966,24 @@ html{
     font-size: 16px;
 
   }
+  mark{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif  !important;
+  
+  }
+  #about{
+    min-height: min(90vh, 500px);
+    /* background-color: pink; */
+  }
   .one-x{
-    margin: 0px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-
+    margin-top: 20px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    align-self: flex-start;
   }
   .web-developer-span{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-
+    margin-bottom: 20px;
+  }
+  .name-head-cont-3{
+    flex-direction: column;
   }
   .home-content{
     display: flex;
@@ -976,11 +996,57 @@ html{
   .resume-button{
    align-self: center;
   }
+  .skills-head{
+    margin: 20px 20px 30px 20px;
+    font-size: 20px;
+    color: rgb(228, 228, 228);
+  }
+  .skills-list{
+    gap: 20px;
+  }
+  .load-more-button{
+    margin-top: 0px;
+    box-shadow: none;
+  }
+  .load-more-button:hover{
+    background-color: #1477f7;
+    color: #E6F1FF;
+  }
   .home-icons-cont{
     justify-content: center;
 
   }.portfolio-heading{
     font-size: 20px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  }
+  .every-service:nth-child(even) .every-service-content{
+    order: 5;
+  }
+  
+  .every-service:nth-child(even) img{
+    order: 1;
+  }
+  .services-main-head{
+    font-size: 20px;
+  }
+  .arrow-one-project:hover{
+    box-shadow: none;
+  }
+  .contant-me-head{
+    font-size: 20px;
+  }
+  .contant-me-head span{
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .contant-me-head::first-letter{
+    font-size: 22px;
+  }
+
+  .contact-me-container{
+    width: 90%;
+  }
+  .contact-me-text-cont{
+    width: 85%;
   }
 }

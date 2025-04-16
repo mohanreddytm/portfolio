@@ -74,6 +74,26 @@ const App = () => {
   const projectsRef = useRef();
   const contactRef = useRef();
 
+  const [itemsToShowSkills, setItemsToShowSkills] = useState(6);
+
+
+  useEffect(() => {
+    const updateSkillsItems = () => {
+      if(window.innerWidth < 768) {
+        setItemsToShowSkills(3);
+      }else{
+        setItemsToShowSkills(6);
+      }
+
+    };
+    updateSkillsItems();
+    window.addEventListener("resize", updateSkillsItems);
+    return () => {
+      window.removeEventListener("resize", updateSkillsItems);
+    };
+  }
+  , []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -224,7 +244,7 @@ console.log("Clicked")
             <h1 className="name-head-1">Hi, Myself</h1>
             <h1 className="name-head-2">Tammineni Mohan Reddy</h1>
             <div className="name-head-cont-3">
-              <h1 className="name-head-1 one-x">And I'm a </h1>
+              <h1 className="name-head-1 one-x">And I'm a - </h1>
               {activeSection === "home" ? (<SecondIterator currentOne={activeSection} />) : <h1 className="web-developer-span">Full Stack Web Developer<span className="blink">|</span></h1>}
             </div>
             
@@ -250,67 +270,69 @@ console.log("Clicked")
         </section>
         
         <section id="about" ref={aboutRef}>
-      <img src={about} alt="about" className="about-image" />
+          <img src={about} alt="about" className="about-image" />
 
-      <div className="about-content">
-        <h2 className="about-head">About Me</h2>
-        <p className="about-me-text">
-          I’m <mark>Tammineni Mohan Reddy</mark>, a dedicated <mark>Full-Stack Web Developer</mark> with expertise in <mark>React.js, Node.js, Express.js, and SQLite</mark>. 
-          I specialize in building modern, high-performance web applications that are <mark>responsive, efficient, and scalable</mark>.
-        </p>
-        <p className="about-me-text">
-          I enjoy turning ideas into reality through <mark>clean code and seamless UI/UX</mark>. 
-          Whether it's <mark>frontend development, backend APIs, or full-stack solutions</mark>, I focus on delivering high-quality and optimized web applications.
-        </p>
+          <div className="about-content">
+            <h2 className="about-head">About Me</h2>
+            <p className="about-me-text">
+              I’m <mark>Tammineni Mohan Reddy</mark>, a dedicated <mark>Full-Stack Web Developer</mark> with expertise in <mark>React.js, Node.js, Express.js, and SQLite</mark>. 
+              I specialize in building modern, high-performance web applications that are <mark>responsive, efficient, and scalable</mark>.
+            </p>
+            <p className="about-me-text">
+              I enjoy turning ideas into reality through <mark>clean code and seamless UI/UX</mark>. 
+              Whether it's <mark>frontend development, backend APIs, or full-stack solutions</mark>, I focus on delivering high-quality and optimized web applications.
+            </p>
+            <button  className="read-more" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? 
+                <div>
+                  <BiSolidDownArrow /> <p>Read Less</p> 
+                </div>: 
+                <div>
+                  <BiSolidRightArrow /> <p>Read More</p>
+                </div>}
+            </button>
 
-        <button  className="read-more" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? 
-            <div>
-              <BiSolidDownArrow /> <p>Read Less</p> 
-            </div>: 
-            <div>
-              <BiSolidRightArrow /> <p>Read More</p>
-            </div>}
-        </button>
-
-        <div className={`expandable-content ${isOpen ? "open" : ""}`}>
-          <h2 className="about-key-skills-heading">Key Skills</h2>
-          <ul className="about-key-skills">
-            <li><p>React.js & Modern Frontend Development</p></li>
-            <li><p>Node.js & Express.js for Scalable Backend Solutions</p></li>
-            <li><p>REST API Development & Third-Party API Integration</p></li>
-            <li><p>Database Management with SQLite & PostgreSQL (Docker)</p></li>
-            <li><p>State Management (Redux, Context API) & Performance Optimization</p></li>
-            <li><p>Authentication & Security (JWT, OAuth)</p></li>
-            <li><p>Deployment & Hosting (Render, Docker, Netlify)</p></li>
-            <li><p>Debugging & Bug Fixing</p></li>
-          </ul>
-          <p className="desc-bottom">
-            I am always eager to learn and stay updated with the latest technologies 
-            to deliver the best solutions. Let’s connect and build something amazing together!
-          </p>
-        </div>
-      </div>
+            <div className={`expandable-content ${isOpen ? "open" : ""}`}>
+              <h2 className="about-key-skills-heading">Key Skills</h2>
+              <ul className="about-key-skills">
+                <li><p>React.js & Modern Frontend Development</p></li>
+                <li><p>Node.js & Express.js for Scalable Backend Solutions</p></li>
+                <li><p>REST API Development & Third-Party API Integration</p></li>
+                <li><p>Database Management with SQLite & PostgreSQL (Docker)</p></li>
+                <li><p>State Management (Redux, Context API) & Performance Optimization</p></li>
+                <li><p>Authentication & Security (JWT, OAuth)</p></li>
+                <li><p>Deployment & Hosting (Render, Docker, Netlify)</p></li>
+                <li><p>Debugging & Bug Fixing</p></li>
+              </ul>
+              <p className="desc-bottom">
+                I am always eager to learn and stay updated with the latest technologies 
+                to deliver the best solutions. Let’s connect and build something amazing together!
+              </p>
+            </div>
+          </div>
         </section>
+
         <section id="skills" ref={skillsRef}>
           <h1 className='skills-head'>Skills & Certificates</h1>
           <ul className='skills-list'>
-            {skills.slice(0, loadMore ? skills.length : 6).map(eachSkill => <EverySkill key={eachSkill.name} skill={eachSkill} />)}
+            {skills.slice(0, loadMore ? skills.length : itemsToShowSkills).map(eachSkill => <EverySkill key={eachSkill.name} skill={eachSkill} />)}
           </ul>
           <div className='show-more-button'>
              <button onClick={() => setLoadMore(!loadMore)} className='load-more-button'>Show {loadMore ? "Less" : "More"}</button>
           </div>
-       </section>
-       <section id="services" ref={servicesRef}>
-        <h1 className='services-main-head'>Services</h1>
-        <ul className='serives-container'>
-          {loadservices === false ? Services.slice(0,2).map(eachService => <EveryService service={eachService} key={eachService.id} />):Services.map(eachService => <EveryService service={eachService} key={eachService.id} />)}
-          
-        </ul>
-        <div className='show-more-button show-more-in-services'>
-          <button onClick={() => setloadservices(!loadservices)} className='load-more-button'>Show {loadservices ? "Less" : "More"}</button>
-        </div>
-       </section>
+        </section>
+
+        <section id="services" ref={servicesRef}>
+          <h1 className='services-main-head'>Services</h1>
+          <ul className='serives-container'>
+            {loadservices === false ? Services.slice(0,2).map(eachService => <EveryService service={eachService} key={eachService.id} />):Services.map(eachService => <EveryService service={eachService} key={eachService.id} />)}
+            
+          </ul>
+          <div className='show-more-button show-more-in-services'>
+            <button onClick={() => setloadservices(!loadservices)} className='load-more-button'>Show {loadservices ? "Less" : "More"}</button>
+          </div>
+        </section>
+
         <section id="projects" ref={projectsRef}>
           <h1 className='services-main-head'>Projects</h1>
           <div className='projects-container'>
@@ -320,25 +342,25 @@ console.log("Clicked")
               </ul>
             <FaArrowAltCircleRight onClick={onClickRightArrowProject} className={`arrow-one-project ${currentPage === projects.length-1 && "low-one" }`} />
           </div>
-
         </section>
-        <section id="contact" ref={contactRef}>
-            <h1 className='contant-me-head'>Contact <span>Me</span></h1>
-            <div className='contact-me-container'>
-              <input type="text" onChange={onChangeFullname} value={fullnameinput} placeholder='Full Name' className='input-field' />
-              <input type="text" onChange={onChangeEmailAddress} value={emailinput} placeholder='Email Address' className='input-field' />
-            </div>
-            <div className='contact-me-container'>
-              <input type="text" onChange={onChangeMobileNumber} value={mobilenumberinput} placeholder='Mobile Number' className='input-field' />
-              <input type="text" onChange={onChangeEmailsub} value={emailSubjectinput} placeholder='Email Subject' className='input-field' />
-              
-            </div>
-            <div className='contact-me-text-cont'>
-              <textarea onChange={onChangeMessage} value={messageinput} className='text-area-contact-me' placeholder='Your Message' rows={10}  />
-              <p className='count-value'>{count}/600</p>
-            </div>
 
-            <button onClick={onClickContactButton} className='send-message-button-contact'>Send Message</button>
+        <section id="contact" ref={contactRef}>
+          <h1 className='contant-me-head'>Contact <span>Me</span></h1>
+          <div className='contact-me-container'>
+            <input type="text" onChange={onChangeFullname} value={fullnameinput} placeholder='Full Name' className='input-field' />
+            <input type="text" onChange={onChangeEmailAddress} value={emailinput} placeholder='Email Address' className='input-field' />
+          </div>
+          <div className='contact-me-container'>
+            <input type="text" onChange={onChangeMobileNumber} value={mobilenumberinput} placeholder='Mobile Number' className='input-field' />
+            <input type="text" onChange={onChangeEmailsub} value={emailSubjectinput} placeholder='Email Subject' className='input-field' />
+            
+          </div>
+          <div className='contact-me-text-cont'>
+            <textarea onChange={onChangeMessage} value={messageinput} className='text-area-contact-me' placeholder='Your Message' rows={10}  />
+            <p className='count-value'>{count}/600</p>
+          </div>
+
+          <button onClick={onClickContactButton} className='send-message-button-contact'>Send Message</button>
         </section>
         <div className='copy-right-container'>
           <p className='copy-right-para'>Copyright <FaRegCopyright className='copy-right-sys' /> 2025 by Mohan | All Rights Reserved. </p>

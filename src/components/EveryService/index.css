@@ -121,3 +121,28 @@ aside{
     list-style-type:lower-alpha;
     padding: 5px;
 }   
+
+@media screen and (max-width:768px){
+    .every-serice-image{
+        order:10;
+        min-width: 100%;
+        /* padding-left: 10px; */
+
+    }
+    .every-service-content{
+        order: 30;
+    }
+    .every-service{
+        flex-direction: column;
+    }
+    .every-service-content-head{
+        font-size: 18px !important;
+    }
+    .every-service-content-desc{
+        line-height: 1.3;
+        margin-bottom: 0px;
+    }
+    .services-button{
+        margin: 0px;
+    }
+}
