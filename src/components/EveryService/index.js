@@ -23,6 +23,7 @@ const EveryService = (props) => {
     const DetailedContent = () => {
         return(
             <div className='service-pop-cont'>
+                <IoMdClose onClick={() => setShowDetails(false)} className='close-one-every-serives mobile-view-into' />                  
                 <section className='service-pop-main-section'>
                     <h1 className='service-pop-main-head'>{service.title}</h1>
                     <p className='service-pop-intro'>{service.intro}</p>
@@ -43,9 +44,7 @@ const EveryService = (props) => {
                 </section>
                 <aside>
                     <IoMdClose onClick={() => setShowDetails(false)} className='close-one-every-serives' />
-
-                    
-                <h1 className='service-pop-head special-features'>Special Features</h1>
+                    <h1 className='service-pop-head special-features'>Special Features</h1>
                     <ul className='service-pop-list special-features-cont'>
                         {service.specialFeatures.map(eachFeature => <li>
                             {eachFeature}
@@ -76,15 +75,11 @@ const EveryService = (props) => {
                                         'rgb(255, 205, 86)',
                                         'rgb(196, 86, 255)',
                                     ],
-                                   
                                 },
                             ]
                         }}
-                        
                         />
                     </ul>
-
-
                 </aside>
             </div>
         )

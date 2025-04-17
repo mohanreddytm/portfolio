@@ -228,4 +228,14 @@
     .inner-image-cont::after, .inner-image-cont::before{
         background-image: conic-gradient(from 74deg,transparent 0% 95%,#fe19fe 0% 5%);
     }
+    .certificate-image{
+
+        width: 90%;
+    }
+    #certificate-container{
+        width: 100vw !important;
+        height: 35%;
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -136,6 +136,7 @@ aside{
         flex-direction: column;
     }
     .every-service-content-head{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 18px !important;
     }
     .every-service-content-desc{
@@ -144,5 +145,54 @@ aside{
     }
     .services-button{
         margin: 0px;
+    }
+    .service-pop-cont{
+        flex-direction: column;
+    }
+    .close-one-every-serives{
+        display: none;
+    }
+    aside{
+        padding: 20px;
+    }
+    .special-features-cont li{
+        list-style-type: lower-alpha;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    .service-pop-main-head{
+        font-size: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .service-pop-intro{
+        font-size: 12px;
+    }
+    .service-pop-head{
+        font-size: 18px;
+    }
+    .what-we-do-cont li{
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+    .technologies-used-cont li{
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+    /* .service-pop-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    } */
+    .service-pop-list li{
+        width: 95%;
+    }
+    .mobile-view-into{
+        display: block;
+        position: fixed;
+        background-color: red;
+        padding: 4px 8px ;
     }
 }

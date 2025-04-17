@@ -31,7 +31,6 @@ const EverySkill = ({skill}) => {
 
 
     const CertificatePopup = () => {
-        console.log("entered here skill")
         return (
           <div className='certiticate-popup-cont'>
             <div id="certificate-container">
