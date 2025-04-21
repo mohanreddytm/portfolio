@@ -2,8 +2,6 @@
 
 import './index.css'
 
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 import html2canvas from "html2canvas";
 

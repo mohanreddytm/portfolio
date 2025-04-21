@@ -1,6 +1,8 @@
-import { use, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter,FaArrowAltCircleRight , FaArrowAltCircleLeft } from "react-icons/fa";
+import emailjs from 'emailjs-com';
+
+import {  FaInstagram, FaLinkedin,FaArrowAltCircleRight , FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiSolidRightArrow, BiSolidDownArrow } from "react-icons/bi";
 
 import profile from './images/profile.png';
@@ -28,7 +30,6 @@ import databasecertificate from './images/databasecertificate.png'
 import EveryService from './components/EveryService';
 import EverySkill  from './components/EverySkill';
 
-import one from './images/one.png'
 
 import EveryProject from './components/EveryProject';
 
@@ -38,7 +39,7 @@ import todoslogo from './images/todoslogo.png'
 import foodmunchlogo from './images/foodmunchlogo.png'
 import spaciologo from './images/spaciologo.png'
 import rockpaperlogo from './images/rockpaperlogo.png'
-import primevideologo from './images/primevideologo.png'
+import foodielogo from './images/foodielogo.png'
 import taskmanagerlogo from './images/taskmanagerlogo.png'
 import oneresume from './oneresume.pdf'
 import { FaRegCopyright, FaAngleUp, FaSquareXTwitter  } from "react-icons/fa6";
@@ -75,6 +76,41 @@ const App = () => {
   const contactRef = useRef();
 
   const [itemsToShowSkills, setItemsToShowSkills] = useState(6);
+
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Create the data to send in the email
+    const formData = {
+      fullname: fullnameinput,
+      email: emailinput,
+      mobile: mobilenumberinput,
+      subject: emailSubjectinput,
+      message: messageinput,
+    };
+
+    // Send the email using EmailJS
+    emailjs.send(
+      'service_ndsltvo',         // Your EmailJS service ID
+      'template_7ndzya5',        // Your EmailJS template ID
+      formData,                  // The form data
+      'S0ZLkMkBWsYwbU2dw'          // Your EmailJS public key
+    )
+    .then((result) => {
+      console.log('Success:', result.text);
+      alert('Email sent successfully!');
+    })
+    .catch((error) => {
+      console.log('Failed:', error.text);
+      alert('Error sending email.');
+    });
+    setFullnameinput("");
+    setEmailinput("")
+    setMobilenumberinput("")
+    setEmailSubjectinput("")
+    setMessageinput("")
+  };
 
 
   useEffect(() => {
@@ -144,15 +180,17 @@ const App = () => {
   ]
 
   const projects = [
-    {projectNo:1, title: "BookBazaar", url:"https://bookbazaarmax.vercel.app/", logo: bookbazaarlogo, image:bookbazaarimage, desc: "The Bookstore App is a full-stack web application designed for users to browse, add books to a cart, and make purchases. It features user authentication, a persistent shopping cart, and dynamically fetched book data. The frontend is built with React, while the backend handles authentication and data management, ensuring a seamless shopping experience."},
-    {projectNo:2, title: "Nxtwatch", url:"https://mynxtwatch.vercel.app", logo: nxtwatchlogo, image:"https://img.freepik.com/free-photo/man-watching-tv-eating-popcorn_23-2148868653.jpg?t=st=1743832629~exp=1743836229~hmac=608022509fb7d56c93b2ab07def0b66475b0a49718185f68e02b40390606388c&w=1380", desc: "MyNxtWatch is your ultimate video-watching adda ! Dive into trending content, binge on your favorite videos, and save them for later—because why not rewatch the good stuff? Whether you're vibing with Light Mode or chilling in Dark Mode , we've got the perfect theme for your mood. Smooth, stylish, and oh-so-addictive—MyNxtWatch is where entertainment meets your vibe!"},
-    {projectNo:3, title: "Spacio Technotics", url:"https://spacio-project-i86j.vercel.app/", logo: spaciologo, image:"https://img.freepik.com/free-photo/concentrated-african-american-user-wearing-vr-glasses_74855-4049.jpg?t=st=1743835450~exp=1743839050~hmac=4e63da47dc299c8f17bc6189e132358ce87247f48b5310f3eaf388570697183e&w=1480", desc: "Spacio Technology is a futuristic UI concept that brings space vibes to life. With clean layouts, modern design, and smooth transitions, it's a visual journey through tech and cosmos—built purely on frontend power. Just UI, but it feels out of this world."},
-    {projectNo:4, title: "Task Manager", url:"https://task-manager-max.vercel.app/", logo: taskmanagerlogo, image:"https://img.freepik.com/free-vector/flat-design-business-planning-concept_23-2149151729.jpg?t=st=1744105442~exp=1744109042~hmac=83650414fd779cc5fe5e1b879cbafbf6186a6fcc9c9eb587a7976ae60ebcebd6&w=1480", desc: "A simple and efficient web app to manage daily tasks. Users can add, edit, delete, and mark tasks as complete. Designed with a clean UI and real-time updates to boost productivity and stay organized. Ideal for personal use or as a productivity demo project."},
-    {projectNo:5, title: "FoodMunch", url:"https://mohanfoodmuch.ccbp.tech/", logo: foodmunchlogo, image:"https://img.freepik.com/free-photo/people-taking-photos-food_23-2149303524.jpg?t=st=1743833909~exp=1743837509~hmac=4f2fcf93d0e1e836e8e34e6e575bcdda7a6acd48a220c8b077223064472596d4&w=1480", desc: "FoodieZone is a mouth-watering UI treat for food lovers. Browse delicious dishes, explore vibrant menus, and enjoy a smooth, responsive design—crafted purely with frontend magic. It’s all about tempting visuals, tasty layouts, and pixel-perfect perfection!"},
-    {projectNo:6, title: "Todos", url:"https://taskswithmohan.ccbp.tech/", logo: todoslogo, image:"https://img.freepik.com/free-photo/back-view-male-professional-works-puts-his-ideas-stick-notes-going-write-main-info-creating-business-plan_273609-34113.jpg?t=st=1743833823~exp=1743837423~hmac=2d2d9a1523a2911eb582a4b8916a9875d7640b0ae3666d6f2d7ed55cdd478c75&w=1480", desc: "ToDo Master – your daily hustle partner. Add tasks, smash goals, and track everything like a boss. With a sleek UI and smooth performance, it’s all about getting things done—your way, your time. Light or Dark mode? We got both. Just plan, click, conquer!"},
-    {projectNo:7, title: "Rock Paper Scissors", url:"https://rockpaperscissersone.vercel.app/", logo: rockpaperlogo, image:"https://img.freepik.com/free-vector/rock-paper-scissors-posters-with-palm-hands-fist-victory-symbol-vector-banners-hand-gesture-game-with-cartoon-illustration-human-arms-playing-gesturing-game_107791-8421.jpg?t=st=1744104755~exp=1744108355~hmac=f792a3d39d4106ec0d19246040167adb7b0da7c89c51f2baf35bcb1c9e37c832&w=1380", desc: "This is a simple and fun online Rock Paper Scissors game built using web technologies. Users can play against the computer with instant results. The game includes a clean UI, real-time score tracking, and smooth interactions. Perfect for a quick challenge or just to pass the time!"},
-    {projectNo:8, title: "Mini Prime Video", url:"https://primevideoone.vercel.app/", logo: primevideologo, image:"https://img.freepik.com/free-photo/male-couch-holding-rewind-button-icon_53876-49303.jpg?t=st=1744104791~exp=1744108391~hmac=078a84c626925f7e32c4ed3b00d7d320ac079ce1752f4f001f4db8feac489054&w=1380", desc: "A lightweight video streaming web app inspired by Amazon Prime Video. Users can  watch trailers or content. Built with a responsive UI and seamless navigation, the app offers a smooth viewing experience. Ideal for showcasing frontend and full-stack skills."},
-      
+    
+    {projectNo:1, title: "Foodie", url:"https://foodie-alpha-taupe.vercel.app/", logo: foodielogo, image:"https://img.freepik.com/free-vector/natural-organic-food-background_1284-9919.jpg?t=st=1745226138~exp=1745229738~hmac=db7ce76a20055c4b53600a9e4a53795f7258296f40e5d1a26b396b20a372b3c6&w=996", desc: "Foodie App is a full-stack bulk vegetable and fruit ordering platform. Users can browse products, add to cart, and place orders, while admins can manage inventory and update order statuses. Built with React, Node.js, and PostgreSQL, the app features user authentication and a responsive interface."},
+    
+    {projectNo:2, title: "BookBazaar", url:"https://bookbazaarmax.vercel.app/", logo: bookbazaarlogo, image:bookbazaarimage, desc: "The Bookstore App is a full-stack web application designed for users to browse, add books to a cart, and make purchases. It features user authentication, a persistent shopping cart, and dynamically fetched book data. The frontend is built with React, while the backend handles authentication and data management, ensuring a seamless shopping experience."},
+    {projectNo:3, title: "Nxtwatch", url:"https://mynxtwatch.vercel.app", logo: nxtwatchlogo, image:"https://img.freepik.com/free-photo/man-watching-tv-eating-popcorn_23-2148868653.jpg?t=st=1743832629~exp=1743836229~hmac=608022509fb7d56c93b2ab07def0b66475b0a49718185f68e02b40390606388c&w=1380", desc: "MyNxtWatch is your ultimate video-watching adda ! Dive into trending content, binge on your favorite videos, and save them for later—because why not rewatch the good stuff? Whether you're vibing with Light Mode or chilling in Dark Mode , we've got the perfect theme for your mood. Smooth, stylish, and oh-so-addictive—MyNxtWatch is where entertainment meets your vibe!"},
+    {projectNo:4, title: "Spacio Technotics", url:"https://spacio-project-i86j.vercel.app/", logo: spaciologo, image:"https://img.freepik.com/free-photo/concentrated-african-american-user-wearing-vr-glasses_74855-4049.jpg?t=st=1743835450~exp=1743839050~hmac=4e63da47dc299c8f17bc6189e132358ce87247f48b5310f3eaf388570697183e&w=1480", desc: "Spacio Technology is a futuristic UI concept that brings space vibes to life. With clean layouts, modern design, and smooth transitions, it's a visual journey through tech and cosmos—built purely on frontend power. Just UI, but it feels out of this world."},
+    {projectNo:5, title: "Task Manager", url:"https://task-manager-max.vercel.app/", logo: taskmanagerlogo, image:"https://img.freepik.com/free-vector/flat-design-business-planning-concept_23-2149151729.jpg?t=st=1744105442~exp=1744109042~hmac=83650414fd779cc5fe5e1b879cbafbf6186a6fcc9c9eb587a7976ae60ebcebd6&w=1480", desc: "A simple and efficient web app to manage daily tasks. Users can add, edit, delete, and mark tasks as complete. Designed with a clean UI and real-time updates to boost productivity and stay organized. Ideal for personal use or as a productivity demo project."},
+    {projectNo:6, title: "FoodMunch", url:"https://mohanfoodmuch.ccbp.tech/", logo: foodmunchlogo, image:"https://img.freepik.com/free-photo/people-taking-photos-food_23-2149303524.jpg?t=st=1743833909~exp=1743837509~hmac=4f2fcf93d0e1e836e8e34e6e575bcdda7a6acd48a220c8b077223064472596d4&w=1480", desc: "FoodieZone is a mouth-watering UI treat for food lovers. Browse delicious dishes, explore vibrant menus, and enjoy a smooth, responsive design—crafted purely with frontend magic. It’s all about tempting visuals, tasty layouts, and pixel-perfect perfection!"},
+    {projectNo:7, title: "Todos", url:"https://taskswithmohan.ccbp.tech/", logo: todoslogo, image:"https://img.freepik.com/free-photo/back-view-male-professional-works-puts-his-ideas-stick-notes-going-write-main-info-creating-business-plan_273609-34113.jpg?t=st=1743833823~exp=1743837423~hmac=2d2d9a1523a2911eb582a4b8916a9875d7640b0ae3666d6f2d7ed55cdd478c75&w=1480", desc: "ToDo Master – your daily hustle partner. Add tasks, smash goals, and track everything like a boss. With a sleek UI and smooth performance, it’s all about getting things done—your way, your time. Light or Dark mode? We got both. Just plan, click, conquer!"},
+    {projectNo:8, title: "Rock Paper Scissors", url:"https://rockpaperscissersone.vercel.app/", logo: rockpaperlogo, image:"https://img.freepik.com/free-vector/rock-paper-scissors-posters-with-palm-hands-fist-victory-symbol-vector-banners-hand-gesture-game-with-cartoon-illustration-human-arms-playing-gesturing-game_107791-8421.jpg?t=st=1744104755~exp=1744108355~hmac=f792a3d39d4106ec0d19246040167adb7b0da7c89c51f2baf35bcb1c9e37c832&w=1380", desc: "This is a simple and fun online Rock Paper Scissors game built using web technologies. Users can play against the computer with instant results. The game includes a clean UI, real-time score tracking, and smooth interactions. Perfect for a quick challenge or just to pass the time!"}
+        
   ]
 
   const onClickLeftArrowProject = () => {
@@ -205,9 +243,7 @@ const App = () => {
     link.click();
 }
 
-  const onClickContactButton = () => {
-console.log("Clicked")
-  }
+
 
   return (
     <div className="initial-container">
@@ -360,7 +396,7 @@ console.log("Clicked")
             <p className='count-value'>{count}/600</p>
           </div>
 
-          <button onClick={onClickContactButton} className='send-message-button-contact'>Send Message</button>
+          <button onClick={sendEmail} className='send-message-button-contact' >Send Message</button>
         </section>
         <div className='copy-right-container'>
           <p className='copy-right-para'>Copyright <FaRegCopyright className='copy-right-sys' /> 2025 by Mohan | All Rights Reserved. </p>

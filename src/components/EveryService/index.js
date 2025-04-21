@@ -1,15 +1,7 @@
-
 import { useState } from 'react'
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import './index.css'
-import { Chart as ChartJS } from 'chart.js/auto';
-
 import { IoMdClose } from "react-icons/io";
-
-import {Bar, Doughnut} from 'react-chartjs-2'
+import { Doughnut} from 'react-chartjs-2'
 
 const EveryService = (props) => {
     const {service} = props
