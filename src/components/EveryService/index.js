@@ -2,6 +2,15 @@ import { useState } from 'react'
 import './index.css'
 import { IoMdClose } from "react-icons/io";
 import { Doughnut} from 'react-chartjs-2'
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+  
+  ChartJS.register(ArcElement, Tooltip, Legend);
+  
 
 const EveryService = (props) => {
     const {service} = props
@@ -13,8 +22,10 @@ const EveryService = (props) => {
     }
 
     const DetailedContent = () => {
+
+        console.log(service.graphicalRepresentation)
         return(
-            <div className='service-pop-cont'>
+            <div  key={service.id} className='service-pop-cont'>
                 <IoMdClose onClick={() => setShowDetails(false)} className='close-one-every-serives mobile-view-into' />                  
                 <section className='service-pop-main-section'>
                     <h1 className='service-pop-main-head'>{service.title}</h1>
@@ -44,7 +55,7 @@ const EveryService = (props) => {
                     </ul>
                     <h1 className='service-pop-head'>Graphical Representation</h1>
                     <ul className='service-pop-list'>
-                        <Doughnut 
+                        <Doughnut key={service.id}
                         data = {{
                             labels: service.graphicalRepresentation.map(data => data.name),
                             datasets: [

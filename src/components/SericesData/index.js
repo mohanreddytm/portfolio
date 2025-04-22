@@ -19,10 +19,10 @@ const Services = [
           "Axios, Fetch API – For seamless data fetching."
         ],
         graphicalRepresentation: [
-          { name: "Responsive Design", percentage: 45 },
-          { name: "Interactive UI & Animations", percentage: 30 },
-          { name: "Performance Optimization", percentage: 15 },
-          { name: "API Integration", percentage: 10 }
+          {id:1, name: "Responsive Design", percentage: 45 },
+          {id:2, name: "Interactive UI & Animations", percentage: 30 },
+          {id:3, name: "Performance Optimization", percentage: 15 },
+          {id:4, name: "API Integration", percentage: 10 }
         ]
         
         ,
