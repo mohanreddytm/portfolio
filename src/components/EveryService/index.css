@@ -121,7 +121,9 @@ aside{
     list-style-type:lower-alpha;
     padding: 5px;
 }   
-
+.mobile-view-into{
+    display: none;
+}
 @media screen and (max-width:768px){
     .every-serice-image{
         order:10;
