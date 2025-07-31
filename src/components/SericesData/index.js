@@ -31,7 +31,7 @@ const Services = [
           "Dark Mode & Theming: Customizable user preferences for better UX.",
           "Accessibility (WCAG Standards): Ensuring usability for all, including users with disabilities."
         ],
-        desc: "Creating visually appealing, user-friendly, and highly responsive web interfaces that adapt seamlessly across devices. Ensuring smooth user interactions with modern frameworks like React, optimized performance, and accessibility for an engaging experience.", 
+        desc: "Creating visually appealing, user-friendly, and highly responsive web interfaces that adapt seamlessly across devices.", 
         img:"https://img.freepik.com/free-photo/ui-ux-representations-with-laptop_23-2150201871.jpg?t=st=1743047673~exp=1743051273~hmac=b9bb68855b7a70af61aff4610a4a67074bb9603e59abf24a8d53ef8747feb2d3&w=1480"},
     {id:2,  intro: "Building and managing robust APIs, integrating databases efficiently, and ensuring secure and scalable server-side logic for seamless web applications.",
       whatWeDo: [
@@ -59,7 +59,7 @@ const Services = [
         "Caching & Load Balancing: Redis and CDN integration for faster responses."
       ],
       title:"API creation, database integration, and server-side logic.",
-      desc: "Build and manage APIs, integrate databases, and handle server-side logic for seamless data flow and secure authentication. Ensure optimized performance and scalability for web applications.", 
+      desc: "Build and manage APIs, integrate databases, and handle server-side logic for seamless data flow and secure authentication.", 
       img:"https://img.freepik.com/free-vector/technology-isometric-api-illustration_23-2149375823.jpg?t=st=1743052826~exp=1743056426~hmac=df37c95f5868a25d178128201c40f25bf3dbddb4172f6895ffa80cd496d05d2e&w=1480"},
     {id:3,
       title: "Full-Stack Web Development", intro: "End-to-end web development, integrating frontend, backend, and database solutions to create seamless, scalable, and high-performance applications.",
