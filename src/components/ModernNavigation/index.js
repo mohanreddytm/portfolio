@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { IoIosMenu } from "react-icons/io";
 import { FaTimes } from "react-icons/fa";
 import './index.css';

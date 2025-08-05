@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram, FaRegCopyright, FaAngleUp } from 'react-icons/fa';
 import './index.css';
 

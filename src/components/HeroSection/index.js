@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 import { FaInstagram, FaLinkedin, FaGithub, FaTwitter, FaDownload, FaArrowDown } from "react-icons/fa";
 import './index.css';
@@ -58,8 +58,8 @@ const HeroSection = ({ profile, downloadResume }) => {
                 <FaDownload className="button-icon" />
                 Download Resume
               </button>
-              <button className="cta-button secondary">
-                <FaArrowDown className="button-icon" />
+              <button className="cta-button secondary" onClick={() => window.location.href = '#projects'}>
+                <FaArrowDown className="button-icon"  />
                 View Projects
               </button>
             </div>

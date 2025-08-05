@@ -1,7 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useSpring, animated } from 'react-spring';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { useSpring, animated } from '@react-spring/web';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
 

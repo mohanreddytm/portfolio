@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useSpring, animated } from 'react-spring';
-import { FaExternalLinkAlt, FaGithub, FaEye, FaCode, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useSpring, animated } from '@react-spring/web';
+import { FaExternalLinkAlt, FaGithub, FaEye, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './index.css';
 
 const EnhancedProjects = ({ projects }) => {
@@ -83,10 +83,17 @@ const EnhancedProjects = ({ projects }) => {
                   <FaExternalLinkAlt />
                   <span>Live Demo</span>
                 </a>
-                <button className="project-link source-code">
-                  <FaGithub />
-                  <span>Source Code</span>
-                </button>
+                {currentProject.githubUrl && (
+                  <a 
+                    href={currentProject.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link source-code"
+                  >
+                    <FaGithub />
+                    <span>Source Code</span>
+                  </a>
+                )}
               </div>
             </div>
           </animated.div>

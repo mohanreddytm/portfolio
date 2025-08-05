@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useInView } from 'react-intersection-observer';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import CountUp from 'react-countup';
 import { FaCode, FaDatabase, FaServer, FaMobile, FaCloud, FaShieldAlt, FaTimes, FaExpand } from 'react-icons/fa';
 import './index.css';

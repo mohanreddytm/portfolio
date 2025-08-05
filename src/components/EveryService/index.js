@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import './index.css'
-import { IoMdClose } from "react-icons/io";
-import { FaTimes, FaRocket, FaLightbulb, FaCogs, FaChartLine, FaCheckCircle, FaArrowRight, FaPlay, FaPause, FaExpand, FaStar } from "react-icons/fa";
+import { FaTimes, FaRocket, FaLightbulb, FaCogs, FaChartLine, FaCheckCircle, FaStar } from "react-icons/fa";
 import { Doughnut} from 'react-chartjs-2'
 import {
     Chart as ChartJS,
